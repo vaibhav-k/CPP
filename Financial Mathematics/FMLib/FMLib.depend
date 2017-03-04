@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1488647370 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
+	<iostream>
+	<cmath>
+	"matlib.h"
+
+1488644515 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
+
