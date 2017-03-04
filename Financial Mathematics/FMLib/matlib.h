@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "stdafx.h"
+
 const double PI = 3.14159265358979;
 
 /**
@@ -17,5 +19,5 @@ double normcdf( double x );
 */
 double norminv( double x );
 
-static inline double hornerFunction(double x, double a0,  double a1);
+void testMatlib();
 #endif // MATLIB_H_INCLUDED

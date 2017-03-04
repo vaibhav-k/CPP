@@ -1,8 +1,26 @@
 # depslib dependency file v1.0
-1488647370 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
-	<iostream>
-	<cmath>
+1488650946 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
 	"matlib.h"
 
-1488644515 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
+1488650879 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
+	"stdafx.h"
+
+1488650820 e:\programming\repositories\c++\financial mathematics\fmlib\stdafx.h
+	<iostream>
+	<cmath>
+	<cassert>
+	"testing.h"
+
+1488650909 e:\programming\repositories\c++\financial mathematics\fmlib\testing.h
+	<stdexcept>
+	<sstream>
+	<iostream>
+	<stdlib.h>
+	<cassert>
+
+1488651036 source:e:\programming\repositories\c++\financial mathematics\fmlib\matlib.cpp
+	"matlib.h"
+
+1488651092 source:e:\programming\repositories\c++\financial mathematics\fmlib\testing.cpp
+	"testing.h"
 
