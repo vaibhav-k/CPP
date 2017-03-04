@@ -3,9 +3,12 @@
 
 #pragma once
 
+
 #include <iostream>
 #include <cmath>
-#include <cassert>
+#include <vector>
+#include <fstream>
+#include <sstream>
 #include "testing.h"
 
 #endif // STDAFX_H_INCLUDED

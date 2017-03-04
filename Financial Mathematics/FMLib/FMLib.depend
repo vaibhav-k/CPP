@@ -1,14 +1,16 @@
 # depslib dependency file v1.0
-1488650946 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
+1488654333 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
 	"matlib.h"
 
 1488650879 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
 	"stdafx.h"
 
-1488650820 e:\programming\repositories\c++\financial mathematics\fmlib\stdafx.h
+1488654213 e:\programming\repositories\c++\financial mathematics\fmlib\stdafx.h
 	<iostream>
 	<cmath>
-	<cassert>
+	<vector>
+	<fstream>
+	<sstream>
 	"testing.h"
 
 1488650909 e:\programming\repositories\c++\financial mathematics\fmlib\testing.h
@@ -23,4 +25,30 @@
 
 1488651092 source:e:\programming\repositories\c++\financial mathematics\fmlib\testing.cpp
 	"testing.h"
+
+1488654299 source:e:\programming\repositories\c++\financial mathematics\fmlib\charts.cpp
+	"charts.h"
+
+1488654190 e:\programming\repositories\c++\financial mathematics\fmlib\charts.h
+	"stdafx.h"
+
+1488654065 source:e:\programming\repositories\c++\financial mathematics\fmlib\geometry.cpp
+	"geometry.h"
+	"stdafx.h"
+	"testing.h"
+
+1488654021 e:\programming\repositories\c++\financial mathematics\fmlib\geometry.h
+
+1488655015 source:e:\programming\repositories\c++\financial mathematics\fmlib\calloption.cpp
+	"CallOption.h"
+	"matlib.h"
+
+1488654889 e:\programming\repositories\c++\financial mathematics\fmlib\calloption.h
+	"stdafx.h"
+	"BlackScholesModel.h"
+
+1488654645 e:\programming\repositories\c++\financial mathematics\fmlib\blackscholesmodel.h
+
+1488655099 source:e:\programming\repositories\c++\financial mathematics\fmlib\blackscholesmodel.cpp
+	"BlackScholesModel.h"
 
