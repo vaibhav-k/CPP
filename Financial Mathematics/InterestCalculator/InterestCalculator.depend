@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1488643669 source:e:\programming\repositories\c++\financial mathematics\interestcalculator\main.cpp
+	<iostream>
+	<cmath>
+
