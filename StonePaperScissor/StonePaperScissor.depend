@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1488643448 source:e:\programming\repositories\c++\stonepaperscissor\main.cpp
+	<iostream>
+	<cmath>
+
