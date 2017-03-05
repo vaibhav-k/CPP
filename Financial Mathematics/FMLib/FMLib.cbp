@@ -32,8 +32,30 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="BlackScholesModel.cpp" />
+		<Unit filename="BlackScholesModel.h" />
+		<Unit filename="CallOption.cpp" />
+		<Unit filename="CallOption.h" />
+		<Unit filename="Histogram.cpp" />
+		<Unit filename="Histogram.h" />
+		<Unit filename="LineChart.cpp" />
+		<Unit filename="LineChart.h" />
+		<Unit filename="MonteCarloPricer.cpp" />
+		<Unit filename="MonteCarloPricer.h" />
+		<Unit filename="PieChart.cpp" />
+		<Unit filename="PieChart.h" />
+		<Unit filename="PutOption.cpp" />
+		<Unit filename="PutOption.h" />
+		<Unit filename="geometry.cpp" />
+		<Unit filename="geometry.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="matlib.cpp" />
 		<Unit filename="matlib.h" />
+		<Unit filename="stdafx.h" />
+		<Unit filename="testing.cpp" />
+		<Unit filename="testing.h" />
+		<Unit filename="textfunctions.cpp" />
+		<Unit filename="textfunctions.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

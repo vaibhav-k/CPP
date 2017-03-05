@@ -1,16 +1,27 @@
 # depslib dependency file v1.0
-1488654333 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
+1488690183 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
 	"matlib.h"
+	"geometry.h"
+	"textfunctions.h"
+	"CallOption.h"
+	"PutOption.h"
+	"PieChart.h"
+	"LineChart.h"
+	"BlackScholesModel.h"
+	"Histogram.h"
+	"MonteCarloPricer.h"
 
-1488650879 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
+1488690129 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
 	"stdafx.h"
 
-1488654213 e:\programming\repositories\c++\financial mathematics\fmlib\stdafx.h
+1488688811 e:\programming\repositories\c++\financial mathematics\fmlib\stdafx.h
 	<iostream>
 	<cmath>
 	<vector>
 	<fstream>
 	<sstream>
+	<algorithm>
+	<random>
 	"testing.h"
 
 1488650909 e:\programming\repositories\c++\financial mathematics\fmlib\testing.h
@@ -20,13 +31,16 @@
 	<stdlib.h>
 	<cassert>
 
-1488651036 source:e:\programming\repositories\c++\financial mathematics\fmlib\matlib.cpp
+1488689512 source:e:\programming\repositories\c++\financial mathematics\fmlib\matlib.cpp
 	"matlib.h"
+	"geometry.h"
+	"LineChart.h"
+	"Histogram.h"
 
 1488651092 source:e:\programming\repositories\c++\financial mathematics\fmlib\testing.cpp
 	"testing.h"
 
-1488654299 source:e:\programming\repositories\c++\financial mathematics\fmlib\charts.cpp
+1488655127 source:e:\programming\repositories\c++\financial mathematics\fmlib\charts.cpp
 	"charts.h"
 
 1488654190 e:\programming\repositories\c++\financial mathematics\fmlib\charts.h
@@ -47,8 +61,56 @@
 	"stdafx.h"
 	"BlackScholesModel.h"
 
-1488654645 e:\programming\repositories\c++\financial mathematics\fmlib\blackscholesmodel.h
+1488690036 e:\programming\repositories\c++\financial mathematics\fmlib\blackscholesmodel.h
+	"stdafx.h"
 
-1488655099 source:e:\programming\repositories\c++\financial mathematics\fmlib\blackscholesmodel.cpp
+1488688714 source:e:\programming\repositories\c++\financial mathematics\fmlib\blackscholesmodel.cpp
 	"BlackScholesModel.h"
+	"LineChart.h"
+	"matlib.h"
+
+1488658274 source:e:\programming\repositories\c++\financial mathematics\fmlib\linechart.cpp
+	"LineChart.h"
+	"textfunctions.h"
+
+1488658194 e:\programming\repositories\c++\financial mathematics\fmlib\linechart.h
+	"stdafx.h"
+
+1488658327 e:\programming\repositories\c++\financial mathematics\fmlib\textfunctions.h
+	"stdafx.h"
+
+1488658363 source:e:\programming\repositories\c++\financial mathematics\fmlib\textfunctions.cpp
+	"textfunctions.h"
+
+1488658474 source:e:\programming\repositories\c++\financial mathematics\fmlib\histogram.cpp
+	"Histogram.h"
+	"testing.h"
+	"matlib.h"
+	"LineChart.h"
+
+1488658150 e:\programming\repositories\c++\financial mathematics\fmlib\histogram.h
+	"stdafx.h"
+
+1488689033 source:e:\programming\repositories\c++\financial mathematics\fmlib\montecarlopricer.cpp
+	"MonteCarloPricer.h"
+	"matlib.h"
+
+1488688780 e:\programming\repositories\c++\financial mathematics\fmlib\montecarlopricer.h
+	"stdafx.h"
+	"CallOption.h"
+	"BlackScholesModel.h"
+
+1488689900 source:e:\programming\repositories\c++\financial mathematics\fmlib\putoption.cpp
+	"PutOption.h"
+	"matlib.h"
+
+1488689696 e:\programming\repositories\c++\financial mathematics\fmlib\putoption.h
+	"stdafx.h"
+	"BlackScholesModel.h"
+
+1488654190 e:\programming\repositories\c++\financial mathematics\fmlib\piechart.h
+	"stdafx.h"
+
+1488690285 source:e:\programming\repositories\c++\financial mathematics\fmlib\piechart.cpp
+	"PieChart.h"
 

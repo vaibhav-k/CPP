@@ -9,6 +9,8 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
+#include <random>
 #include "testing.h"
 
 #endif // STDAFX_H_INCLUDED
