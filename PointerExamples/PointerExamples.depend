@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1489387386 source:e:\programming\repositories\c++\pointerexamples\main.cpp
+	"stdafx.h"
+	"testing.h"
+
+1489390027 e:\programming\repositories\c++\pointerexamples\stdafx.h
+	<iostream>
+	<cmath>
+	<vector>
+	<fstream>
+	<sstream>
+	<algorithm>
+	"testing.h"
+	<memory>
+	<cstring>
+	<tr1/memory>
+
+1489390011 e:\programming\repositories\c++\pointerexamples\testing.h
+	<stdexcept>
+	<sstream>
+	<iostream>
+	<stdlib.h>
+	<cassert>
+
+1489387415 source:e:\programming\repositories\c++\pointerexamples\testing.cpp
+	"testing.h"
+
