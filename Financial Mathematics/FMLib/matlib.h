@@ -1,9 +1,8 @@
-#ifndef MATLIB_H_INCLUDED
-#define MATLIB_H_INCLUDED
-
 #pragma once
 
 #include "stdafx.h"
+#include "RealFunction.h"
+
 
 /*  Create a linearly spaced vector */
 std::vector<double> linspace( double from, double to, int numPoints );
@@ -30,22 +29,34 @@ std::vector<double> randn( int n );
 void rng( const std::string& setting );
 
 /**
- * Computes the cumulative
- * distribution function of the
- * normal distribution
+ *  Computes the cumulative
+ *  distribution function of the
+ *  normal distribution
  */
 double normcdf( double x );
 
-/*
-* Computes the inverse of normcdf
-*/
+/* Computes the inverse of normcdf */
 double norminv( double x );
 
+
 /*  Create a line chart */
-void plot( const std::string& fileName,const std::vector<double>& x,const std::vector<double>& y);
+void plot( const std::string& fileName,
+           const std::vector<double>& x,
+           const std::vector<double>& y);
 
 /*  Plot a histogram */
-void hist( const std::string& fileName,const std::vector<double>& values,int numBuckets=10);
+void hist( const std::string& fileName,
+           const std::vector<double>& values,
+           int numBuckets=10);
 
+/*  Integrate using the rectangle rule */
+double integral( RealFunction& f,
+                 double a,
+                 double b,
+                 int nSteps );
+
+
+/**
+ *  Test function
+ */
 void testMatlib();
-#endif // MATLIB_H_INCLUDED

@@ -13,8 +13,7 @@ vector<double> linspace( double from, double to, int numPoints ) {
     vector<double> ret(numPoints,0.0);
     double step = (to-from)/(numPoints-1);
     double current = from;
-    for (int i=0; i<numPoints; i++)
-    {
+    for (int i=0; i<numPoints; i++) {
         ret[i]=current;
         current+=step;
     }
@@ -27,8 +26,7 @@ vector<double> linspace( double from, double to, int numPoints ) {
 double sum( const std::vector<double>& v ) {
     double total = 0.0;
     int n = v.size();
-    for (int i=0; i<n; i++)
-    {
+    for (int i=0; i<n; i++) {
         total+= v[i];
     }
     return total;
@@ -36,8 +34,7 @@ double sum( const std::vector<double>& v ) {
 
 
 /*  Compute the mean of a vector */
-double mean( const vector<double>& v )
-{
+double mean( const vector<double>& v ) {
     int n = v.size();
     ASSERT( n > 0);
     return sum(v)/n;
@@ -48,33 +45,26 @@ double standardDeviation( const vector<double>& v, bool population ) {
     int n = v.size();
     double total = 0.0;
     double totalSq = 0.0;
-    for (int i=0; i<n; i++)
-    {
+    for (int i=0; i<n; i++) {
         total+=v[i];
         totalSq+=v[i]*v[i];
     }
-    if (population)
-    {
+    if (population)  {
         ASSERT( n > 0 );
         return sqrt( (totalSq - total*total/n)/n );
-    }
-    else
-    {
+    } else {
         ASSERT( n > 1 );
         return sqrt( (totalSq - total*total/n)/(n-1) );
     }
 }
 
 /*  Find the minimum of a vector */
-double min( const vector<double>& v )
-{
+double min( const vector<double>& v ) {
     int n = v.size();
     ASSERT( n > 0);
     double min = v[0];
-    for (int i=1; i<n; i++)
-    {
-        if (v[i]<min)
-        {
+    for (int i=1; i<n; i++) {
+        if (v[i]<min) {
             min=v[i];
         }
     }
@@ -82,15 +72,12 @@ double min( const vector<double>& v )
 }
 
 /*  Find the maximum of a vector */
-double max( const vector<double>& v )
-{
+double max( const vector<double>& v ) {
     int n = v.size();
     ASSERT( n > 0);
     double max = v[0];
-    for (int i=1; i<n; i++)
-    {
-        if (v[i]>max)
-        {
+    for (int i=1; i<n; i++) {
+        if (v[i]>max) {
             max=v[i];
         }
     }
@@ -98,11 +85,9 @@ double max( const vector<double>& v )
 }
 
 /*  Create uniformly distributed random numbers using the C random number API*/
-vector<double> randuniformOld( int n )
-{
+vector<double> randuniformOld( int n ) {
     vector<double> ret(n, 0.0);
-    for (int i=0; i<n; i++)
-    {
+    for (int i=0; i<n; i++) {
         int randInt = rand();
         ret[i] = (randInt + 0.5)/(RAND_MAX+1.0);
     }
@@ -114,8 +99,7 @@ static mt19937 mersenneTwister;
 
 /*  Reset the random number generator. We've borrowed the library call
     from MATLAB, though we're ignoring the description string */
-void rng( const string& description )
-{
+void rng( const string& description ) {
     ASSERT( description=="default" );
     mersenneTwister.seed(mt19937::default_seed);
 }
@@ -123,23 +107,19 @@ void rng( const string& description )
 /*  Create uniformly distributed random numbers using
     the Mersenne Twister algorithm. See the code above for the answer
     to the homework excercise which should familiarize you with the C API*/
-vector<double> randuniform( int n )
-{
+vector<double> randuniform( int n ) {
     vector<double> ret(n, 0.0);
-    for (int i=0; i<n; i++)
-    {
-        ret[i] = (mersenneTwister()+0.5)/
-                 (mersenneTwister.max()+1.0);
+    for (int i=0; i<n; i++) {
+        ret[i] = (mersenneTwister()+0.5)/(mersenneTwister.max()+1.0);
     }
     return ret;
 }
 
+
 /*  Create normally distributed random numbers */
-vector<double> randn( int n )
-{
+vector<double> randn( int n ) {
     vector<double> v=randuniform(n);
-    for (int i=0; i<n; i++)
-    {
+    for (int i=0; i<n; i++) {
         v[i] = norminv(v[i]);
     }
     return v;
@@ -148,8 +128,7 @@ vector<double> randn( int n )
 /**
  *  Sort a vector of doubles
  */
-std::vector<double> sort( const std::vector<double>& v )
-{
+std::vector<double> sort( const std::vector<double>& v ) {
     std::vector<double> copy(v);
     std::sort( copy.begin(), copy.end() );
     return copy;
@@ -168,23 +147,19 @@ double prctile( const std::vector<double>& v, double percentage ) {
 
     int indexBelow = (int)(n* percentage/100.0 - 0.5);
     int indexAbove = indexBelow + 1;
-    if (indexAbove > n-1 )
-    {
+    if (indexAbove > n-1 ) {
         return sorted[n-1];
-    } if (indexBelow<0)
-    {
+    } if (indexBelow<0) {
         return sorted[0];
     }
     double valueBelow = sorted[ indexBelow ];
     double valueAbove = sorted[ indexAbove ];
     double percentageBelow = 100.0*(indexBelow+0.5)/n;
     double percentageAbove = 100.0*(indexAbove+0.5)/n;
-    if (percentage<=percentageBelow)
-    {
+    if (percentage<=percentageBelow) {
         return valueBelow;
     }
-    if (percentage>=percentageAbove)
-    {
+    if (percentage>=percentageAbove) {
         return valueAbove;
     }
     double correction = (percentage - percentageBelow)*(valueAbove-valueBelow)/(percentageAbove-percentageBelow);
@@ -194,8 +169,9 @@ double prctile( const std::vector<double>& v, double percentage ) {
 /**
  *  Convenience method for generating plots
  */
-void plot( const string& file,const vector<double>& x, const vector<double>& y )
-{
+void plot( const string& file,
+           const vector<double>& x,
+           const vector<double>& y ) {
     LineChart lc;
     lc.setSeries(x,y);
     lc.writeAsHTML( file );
@@ -204,8 +180,9 @@ void plot( const string& file,const vector<double>& x, const vector<double>& y )
 /**
  *  Convenience method for generating plots
  */
-void hist( const string& file,const vector<double>& data, int numBuckets )
-{
+void hist( const string& file,
+           const vector<double>& data,
+           int numBuckets ) {
     Histogram h;
     h.setData(data);
     h.setNumBuckets( numBuckets );
@@ -255,11 +232,9 @@ static inline double hornerFunction( double x, double a0, double a1, double a2, 
  *  Arguably this is a little easier to read than the original normcdf
  *  function as it makes the use of horner's method obvious.
  */
-double normcdf( double x )
-{
+double normcdf( double x ) {
     DEBUG_PRINT( "normcdf("<<x<<")");
-    if (x<0)
-    {
+    if (x<0) {
         return 1-normcdf(-x);
     }
     double k = 1/(1 + 0.2316419*x);
@@ -289,46 +264,58 @@ static const double c6 = 0.0000321767881768;
 static const double c7 = 0.0000002888167364;
 static const double c8 = 0.0000003960315187;
 
-double norminv( double x )
-{
+double norminv( double x ) {
     // We use Moro's algorithm
     DEBUG_PRINT( "norminv(" << x <<")" );
     double y = x - 0.5;
-    if (y<0.42 && y>-0.42)
-    {
+    if (y<0.42 && y>-0.42) {
         double r = y*y;
         DEBUG_PRINT( "Case 1, r=" << r );
         return y*hornerFunction(r,a0,a1,a2,a3)/hornerFunction(r,1.0,b1,b2,b3,b4);
-    }
-    else
-    {
+    } else {
         double r;
-        if (y<0.0)
-        {
+        if (y<0.0) {
             r = x;
-        }
-        else
-        {
+        } else {
             r = 1.0 - x;
         }
         DEBUG_PRINT( "Case 2, r=" << r);
         double s = log( -log( r ));
         double t = hornerFunction(s,c0,c1,c2,c3,c4,c5,c6,c7,c8);
-        if (x>0.5)
-        {
+        if (x>0.5) {
             return t;
-        }
-        else
-        {
+        } else {
             return -t;
         }
     }
 }
 
-// Tests
+/**
+ *   Evaluate an integral using the rectangle rule
+ */
+double integral( RealFunction& f,
+                 double a,
+                 double b,
+                 int nPoints ) {
+    double h = (b-a)/nPoints;
+    double x = a + 0.5*h;
+    double total = 0.0;
+    for (int i=0; i<nPoints; i++) {
+        double y = f.evaluate(x);
+        total+=y;
+        x+=h;
+    }
+    return h*total;
+}
 
-static vector<double> createTestVector()
-{
+
+///////////////////////////////////////////////
+//
+//   TESTS
+//
+///////////////////////////////////////////////
+
+static vector<double> createTestVector() {
     vector<double> v;
     v.push_back(1);
     v.push_back(5);
@@ -338,8 +325,7 @@ static vector<double> createTestVector()
     return v;
 }
 
-static void testLinspace()
-{
+static void testLinspace() {
     vector<double> result = linspace(1.0, 10.0, 4 );
     ASSERT_APPROX_EQUAL( result[0], 1.0, 0.001 );
     ASSERT_APPROX_EQUAL( result[1], 4.0, 0.001 );
@@ -347,29 +333,24 @@ static void testLinspace()
     ASSERT_APPROX_EQUAL( result[3], 10.0, 0.001 );
 }
 
-static void testMean()
-{
+static void testMean() {
     ASSERT_APPROX_EQUAL( mean( createTestVector() ), 5.0, 0.001);
 }
 
-static void testStandardDeviation()
-{
+static void testStandardDeviation() {
     ASSERT_APPROX_EQUAL( standardDeviation( createTestVector() ), 3.1623, 0.001);
     ASSERT_APPROX_EQUAL( standardDeviation( createTestVector(), true ), 2.8284, 0.001);
 }
 
-static void testMin()
-{
+static void testMin() {
     ASSERT_APPROX_EQUAL( min( createTestVector() ), 1.0, 0.001);
 }
 
-static void testMax()
-{
+static void testMax() {
     ASSERT_APPROX_EQUAL( max( createTestVector() ), 9.0, 0.001);
 }
 
-static void testRanduniform()
-{
+static void testRanduniform() {
     rng("default");
     vector<double> v = randuniform(1000);
     ASSERT( ((int)v.size())==1000 );
@@ -378,8 +359,7 @@ static void testRanduniform()
     ASSERT( min(v)>0.0);
 }
 
-static void testRandn()
-{
+static void testRandn() {
     rng("default");
     vector<double> v = randn(10000);
     ASSERT( ((int)v.size())==10000 );
@@ -388,18 +368,15 @@ static void testRandn()
 }
 
 
-static void testNormCdf()
-{
+static void testNormCdf() {
     ASSERT_APPROX_EQUAL( normcdf( 1.96 ), 0.975, 0.001 );
 }
 
-static void testNormInv()
-{
+static void testNormInv() {
     ASSERT_APPROX_EQUAL( norminv( 0.975 ), 1.96, 0.01 );
 }
 
-static void testPrctile()
-{
+static void testPrctile() {
     const vector<double> v = createTestVector();
     ASSERT_APPROX_EQUAL( prctile( v, 100.0 ), 9.0, 0.001 );
     ASSERT_APPROX_EQUAL( prctile( v, 0.0 ), 1.0, 0.001 );
@@ -408,9 +385,43 @@ static void testPrctile()
     ASSERT_APPROX_EQUAL( prctile( v, 62.0 ), 6.2, 0.001 );
 }
 
+/*  To test the integral function, we need a function
+    to integrate */
+class SinFunction : public RealFunction {
+    double evaluate( double x );
+};
 
-void testMatlib()
-{
+double SinFunction::evaluate( double x ) {
+    return sin(x);
+}
+
+static void testIntegral() {
+    SinFunction integrand;
+    double actual = integral( integrand, 1, 3, 1000 );
+    double expected = -cos(3.0)+cos(1.0);
+    ASSERT_APPROX_EQUAL( actual, expected, 0.000001);
+}
+
+/**
+ *  When you create a small class like this, using
+ *  nested classes is easier.
+ */
+static void testIntegralVersion2() {
+
+    class Sin : public RealFunction {
+        double evaluate( double x ) {
+            return sin(x);
+        }
+    };
+
+    Sin integrand;
+    double actual = integral( integrand, 1, 3, 1000 );
+    double expected = -cos(3.0)+cos(1.0);
+    ASSERT_APPROX_EQUAL( actual, expected, 0.000001);
+}
+
+
+void testMatlib() {
     TEST( testLinspace );
     TEST( testMean );
     TEST( testStandardDeviation );
@@ -421,4 +432,6 @@ void testMatlib()
     TEST( testNormInv );
     TEST( testNormCdf );
     TEST( testPrctile );
+    TEST( testIntegral );
+    TEST( testIntegralVersion2 );
 }

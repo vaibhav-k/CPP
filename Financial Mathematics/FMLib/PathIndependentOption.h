@@ -1,23 +1,27 @@
-#ifndef PATHINDEPENDENTOPTION_H_INCLUDED
-#define PATHINDEPENDENTOPTION_H_INCLUDED
-
 #pragma once
 
 #include "stdafx.h"
+#include "ContinuousTimeOptionBase.h"
 
 /**
- *   This states that all path independent options have a payoff determined by the final stock price
+ *   This states that all path independent options
+ *   have a payoff determined by the final stock price
  */
-class PathIndependentOption {
+class PathIndependentOption :
+        public ContinuousTimeOptionBase {
 public:
-    /*  A virtual destructor */
-    virtual ~PathIndependentOption() {}
-    /*  Returns the payoff at maturity */
-    virtual double payoff(
-        double finalStockPrice) const = 0;
-    /*  Returns the maturity of the option */
-    virtual double getMaturity() const
-        = 0;
+  /*  A virtual destructor */
+  virtual ~PathIndependentOption() {}
+  /*  Returns the payoff at maturity */
+  virtual double payoff(double endStockPrice) const
+      = 0;
+  /*  Compute the payoff from a price path */
+  double payoff(
+    const std::vector<double>& stockPrices ) const {
+      return payoff(stockPrices.back());
+  }
+  /*  Is the option path dependent? */
+  bool isPathDependent() const {
+      return false;
+  };
 };
-
-#endif // PATHINDEPENDENTOPTION_H_INCLUDED

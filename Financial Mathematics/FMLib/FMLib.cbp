@@ -42,10 +42,13 @@
 		<Unit filename="LineChart.h" />
 		<Unit filename="MonteCarloPricer.cpp" />
 		<Unit filename="MonteCarloPricer.h" />
+		<Unit filename="PathIndependentOption.h" />
 		<Unit filename="PieChart.cpp" />
 		<Unit filename="PieChart.h" />
 		<Unit filename="PutOption.cpp" />
 		<Unit filename="PutOption.h" />
+		<Unit filename="RealFunction.cpp" />
+		<Unit filename="RealFunction.h" />
 		<Unit filename="geometry.cpp" />
 		<Unit filename="geometry.h" />
 		<Unit filename="main.cpp" />

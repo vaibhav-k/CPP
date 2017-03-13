@@ -2,31 +2,22 @@
 
 #include "matlib.h"
 
-
-PutOption::PutOption() :
-  strike(0.0),
-  maturity(0.0) {
-}
-
-double PutOption::payoff( double stockAtMaturity ) const
-{
-    if (stockAtMaturity<strike)
-    {
-        return strike-stockAtMaturity;
-    }
-    else
-    {
+double PutOption::payoff( const std::vector<double>& stockPrices) const {
+    double stockAtMaturity = stockPrices.back();
+    if (stockAtMaturity<getStrike()) {
+        return getStrike()-stockAtMaturity;
+    } else {
         return 0.0;
     }
 }
 
-double PutOption::price(const BlackScholesModel& bsm ) const
-{
+double PutOption::price(
+        const BlackScholesModel& bsm ) const {
     double S = bsm.stockPrice;
-    double K = strike;
+    double K = getStrike();
     double sigma = bsm.volatility;
     double r = bsm.riskFreeRate;
-    double T = maturity - bsm.date;
+    double T = getMaturity() - bsm.date;
 
     double numerator = log( S/K ) + ( r + sigma*sigma*0.5)*T;
     double denominator = sigma * sqrt(T );
@@ -36,26 +27,29 @@ double PutOption::price(const BlackScholesModel& bsm ) const
 }
 
 
-double PutOption::getMaturity() const {
-    return maturity;
-}
 
+//////////////////////////
+//
 //  Test the call option class
+//
+//
+//////////////////////////
 
-static void testPayoff()
-{
+static void testPayoff() {
     PutOption putOption;
-    putOption.strike = 105.0;
-    putOption.maturity = 2.0;
-    ASSERT_APPROX_EQUAL( putOption.payoff(110.0), 0.0, 0.001);
-    ASSERT_APPROX_EQUAL( putOption.payoff(100.0), 5.0, 0.001);
+    putOption.setStrike( 105.0) ;
+    putOption.setMaturity( 2.0 );
+    std::vector<double> d;
+    d.push_back(110.0);
+    ASSERT_APPROX_EQUAL( putOption.payoff(d), 0.0, 0.001);
+    d[0]=100.0;
+    ASSERT_APPROX_EQUAL( putOption.payoff(d), 5.0, 0.001);
 }
 
-static void testPutOptionPrice()
-{
+static void testPutOptionPrice() {
     PutOption putOption;
-    putOption.strike = 105.0;
-    putOption.maturity = 2.0;
+    putOption.setStrike( 105.0 );
+    putOption.setMaturity( 2.0 );
 
     BlackScholesModel bsm;
     bsm.date = 1.0;
@@ -67,8 +61,7 @@ static void testPutOptionPrice()
     ASSERT_APPROX_EQUAL( price, 3.925, 0.01);
 }
 
-void testPutOption()
-{
+void testPutOption() {
     TEST( testPutOptionPrice );
     TEST( testPayoff );
 }

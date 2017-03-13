@@ -8,10 +8,15 @@
 #include "BlackScholesModel.h"
 #include "Histogram.h"
 #include "MonteCarloPricer.h"
+#include "UpAndOutOption.h"
+#include "DownAndOutOption.h"
+#include "pointersolutions.h"
 
 using namespace std;
 
 int main() {
+
+    testPointerSolutions();
     testMatlib();
     testGeometry();
     testPieChart();
@@ -22,4 +27,8 @@ int main() {
     testTextFunctions();
     testHistogram();
     testMonteCarloPricer();
+    testUpAndOutOption();
+    testDownAndOutOption();
+    testContinuousTimeOptionBase();
+    return 0;
 }

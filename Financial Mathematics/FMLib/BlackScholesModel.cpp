@@ -1,8 +1,8 @@
 #include "BlackScholesModel.h"
-#include "LineChart.h"
-#include "matlib.h"
+
 using namespace std;
 
+#include "matlib.h"
 
 BlackScholesModel::BlackScholesModel() :
     drift(0.0),
@@ -15,46 +15,52 @@ BlackScholesModel::BlackScholesModel() :
 /**
  *  Creates a price path according to the model parameters
  */
-vector<double> BlackScholesModel::generateRiskNeutralPricePath(double toDate,int nSteps ) const
-{
-    return generatePricePath(toDate, nSteps, riskFreeRate );
+vector<double> BlackScholesModel::
+            generateRiskNeutralPricePath(
+        double toDate,
+        int nSteps ) const {
+    return generatePricePath( toDate, nSteps, riskFreeRate );
 }
+
 /**
  *  Creates a price path according to the model parameters
  */
-vector<double> BlackScholesModel::generatePricePath(double toDate,int nSteps ) const
-{
-    return generatePricePath(toDate, nSteps, drift );
+vector<double> BlackScholesModel::generatePricePath(
+        double toDate,
+        int nSteps ) const {
+    return generatePricePath( toDate, nSteps, drift );
 }
 
 
 /**
  *  Creates a price path according to the model parameters
  */
-vector<double> BlackScholesModel::generatePricePath(double toDate,int nSteps,double drift ) const
-{
+vector<double> BlackScholesModel::generatePricePath(
+        double toDate,
+        int nSteps,
+        double drift ) const {
     vector<double> path(nSteps,0.0);
     vector<double> epsilon = randn( nSteps );
     double dt = (toDate-date)/nSteps;
-    double a = (drift-volatility*volatility*0.5)*dt;
+    double a = (drift - volatility*volatility*0.5)*dt;
     double b = volatility*sqrt(dt);
     double currentLogS = log( stockPrice );
-    for (int i=0; i<nSteps; i++)
-    {
+    for (int i=0; i<nSteps; i++) {
         double dLogS = a + b*epsilon[i];
         double logS = currentLogS + dLogS;
         path[i] = exp( logS );
         currentLogS = logS;
     }
-
     return path;
 }
 
-// Tests
+////////////////////////////////
+//
+//   TESTS
+//
+////////////////////////////////
 
-void testRiskNeutralPricePath()
-{
-    // Reset random number generator to default
+void testRiskNeutralPricePath() {
     rng("default");
 
     BlackScholesModel bsm;
@@ -69,14 +75,15 @@ void testRiskNeutralPricePath()
     vector<double> finalPrices(nPaths,0.0);
     for (int i=0; i<nPaths; i++) {
         vector<double> path =
-            bsm.generateRiskNeutralPricePath(
-                maturity, nsteps );
+            bsm.generateRiskNeutralPricePath( maturity,
+                                              nsteps );
         finalPrices[i] = path.back();
     }
-    ASSERT_APPROX_EQUAL( mean( finalPrices ),exp( bsm.riskFreeRate*2.0)*bsm.stockPrice,0.5);
+    ASSERT_APPROX_EQUAL( mean( finalPrices ),
+        exp( bsm.riskFreeRate*2.0)*bsm.stockPrice, 0.5);
 }
-void testVisually()
-{
+
+void testVisually() {
     BlackScholesModel bsm;
     bsm.riskFreeRate = 0.05;
     bsm.volatility = 0.1;
@@ -86,19 +93,17 @@ void testVisually()
     int nSteps = 1000;
     double maturity = 4.0;
 
-    vector<double> path =
-        bsm.generatePricePath( maturity, nSteps );
+    vector<double> path = bsm.generatePricePath( maturity,
+                                                 nSteps );
     double dt = (maturity-bsm.date)/nSteps;
-    vector<double> times =
-        linspace(dt,maturity,nSteps);
-    LineChart lineChart;
-    lineChart.setTitle("Stock price path");
-    lineChart.setSeries(times, path);
-    lineChart.writeAsHTML("examplePricePath.html");
+    vector<double> times = linspace(dt, maturity, nSteps );
+    plot("examplePricePath.html",
+         times,
+         path );
 }
 
-void testBlackScholesModel()
-{
+
+void testBlackScholesModel() {
     TEST( testRiskNeutralPricePath );
     TEST( testVisually );
 }

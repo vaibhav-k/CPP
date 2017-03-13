@@ -12,5 +12,7 @@
 #include <algorithm>
 #include <random>
 #include "testing.h"
+#include <memory>
+#include <cstring>
 
 #endif // STDAFX_H_INCLUDED
