@@ -1,12 +1,10 @@
-#ifndef PUTOPTION_H_INCLUDED
-#define PUTOPTION_H_INCLUDED
-
 #pragma once
 
 #include "stdafx.h"
 #include "BlackScholesModel.h"
+#include "PathIndependentOption.h"
 
-class PutOption
+class PutOption : public PathIndependentOption
 {
 public:
     PutOption();
@@ -17,8 +15,8 @@ public:
 
     double price( const BlackScholesModel& bsm )
         const;
+
+    double getMaturity() const;
 };
 
 void testPutOption();
-
-#endif // PUTOPTION_H_INCLUDED

@@ -2,12 +2,19 @@
 
 #include "matlib.h"
 
-double CallOption::payoff(double stockAtMaturity ) const
+
+CallOption::CallOption() :
+  strike(0.0),
+  maturity(0.0) {
+}
+
+double CallOption::payoff( double stockAtMaturity ) const
 {
     if (stockAtMaturity>strike)
     {
         return stockAtMaturity-strike;
-    } else
+    }
+    else
     {
         return 0.0;
     }
@@ -28,7 +35,13 @@ double CallOption::price(const BlackScholesModel& bsm ) const
     return S*normcdf(d1) - exp(-r*T)*K*normcdf(d2);
 }
 
-// Test
+double CallOption::getMaturity() const
+{
+    return maturity;
+}
+
+
+//  Test the call option class
 
 static void testCallOptionPrice()
 {

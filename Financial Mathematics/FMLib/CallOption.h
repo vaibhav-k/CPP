@@ -2,9 +2,12 @@
 
 #include "stdafx.h"
 #include "BlackScholesModel.h"
+#include "PathIndependentOption.h"
 
-class CallOption {
+class CallOption : public PathIndependentOption
+{
 public:
+    CallOption();
     double strike;
     double maturity;
 
@@ -12,6 +15,8 @@ public:
 
     double price( const BlackScholesModel& bsm )
         const;
+
+    double getMaturity() const;
 };
 
 void testCallOption();

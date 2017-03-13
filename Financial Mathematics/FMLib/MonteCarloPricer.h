@@ -4,7 +4,7 @@
 #pragma once
 
 #include "stdafx.h"
-#include "CallOption.h"
+#include "PathIndependentOption.h"
 #include "BlackScholesModel.h"
 
 class MonteCarloPricer {
@@ -14,7 +14,7 @@ public:
     /*  Number of scenarios */
     int nScenarios;
     /*  Price a call option */
-    double price( const CallOption& option,
+    double price( const PathIndependentOption& option,
                   const BlackScholesModel& model );
 };
 

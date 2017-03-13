@@ -1,28 +1,29 @@
 #include "MonteCarloPricer.h"
 
 #include "matlib.h"
-
+#include "CallOption.h"
+#include "PutOption.h"
 using namespace std;
 
 MonteCarloPricer::MonteCarloPricer() :
-    nScenarios(10000)
-{
-
+    nScenarios(10000) {
 }
 
-double MonteCarloPricer::price(const CallOption& callOption,const BlackScholesModel& model )
+double MonteCarloPricer::price(const PathIndependentOption& option, const BlackScholesModel& model )
 {
     double total = 0.0;
-    for (int i=0; i<nScenarios; i++)
-    {
-        vector<double> path= model.generateRiskNeutralPricePath(callOption.maturity,1 );
+    for (int i=0; i<nScenarios; i++) {
+        vector<double> path= model.
+            generateRiskNeutralPricePath(
+                option.getMaturity(),
+                1 );
         double stockPrice = path.back();
-        double payoff=callOption.payoff(stockPrice);
+        double payoff = option.payoff( stockPrice );
         total+= payoff;
     }
     double mean = total/nScenarios;
     double r = model.riskFreeRate;
-    double T = callOption.maturity - model.date;
+    double T = option.getMaturity() - model.date;
     return exp(-r*T)*mean;
 }
 
@@ -30,7 +31,6 @@ double MonteCarloPricer::price(const CallOption& callOption,const BlackScholesMo
 
 static void testPriceCallOption()
 {
-    // Reset random number generator to default
     rng("default");
 
     CallOption c;
@@ -50,7 +50,34 @@ static void testPriceCallOption()
     ASSERT_APPROX_EQUAL( price, expected, 0.1 );
 }
 
+static void testPutAndCall()
+{
+    rng("default");
+
+    BlackScholesModel m;
+    m.volatility = 0.1;
+    m.riskFreeRate = 0.05;
+    m.stockPrice = 100.0;
+    m.drift = 0.1;
+
+    CallOption c;
+    c.strike = 110;
+    c.maturity = 2;
+
+    PutOption p;
+    p.strike = c.strike;
+    p.maturity = c.maturity;
+
+    // our pricer can price puts and calls
+    MonteCarloPricer pricer;
+    double priceC = pricer.price(c, m);
+    ASSERT_APPROX_EQUAL(priceC, c.price(m), 0.1);
+    double priceP = pricer.price(p, m);
+    ASSERT_APPROX_EQUAL(priceP, p.price(m), 0.1);
+}
+
 void testMonteCarloPricer()
 {
     testPriceCallOption();
+    testPutAndCall();
 }

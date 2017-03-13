@@ -53,13 +53,14 @@
 
 1488654021 e:\programming\repositories\c++\financial mathematics\fmlib\geometry.h
 
-1488655015 source:e:\programming\repositories\c++\financial mathematics\fmlib\calloption.cpp
+1489386136 source:e:\programming\repositories\c++\financial mathematics\fmlib\calloption.cpp
 	"CallOption.h"
 	"matlib.h"
 
-1488654889 e:\programming\repositories\c++\financial mathematics\fmlib\calloption.h
+1489386014 e:\programming\repositories\c++\financial mathematics\fmlib\calloption.h
 	"stdafx.h"
 	"BlackScholesModel.h"
+	"PathIndependentOption.h"
 
 1488690036 e:\programming\repositories\c++\financial mathematics\fmlib\blackscholesmodel.h
 	"stdafx.h"
@@ -91,26 +92,32 @@
 1488658150 e:\programming\repositories\c++\financial mathematics\fmlib\histogram.h
 	"stdafx.h"
 
-1488689033 source:e:\programming\repositories\c++\financial mathematics\fmlib\montecarlopricer.cpp
+1489385902 source:e:\programming\repositories\c++\financial mathematics\fmlib\montecarlopricer.cpp
 	"MonteCarloPricer.h"
 	"matlib.h"
-
-1488688780 e:\programming\repositories\c++\financial mathematics\fmlib\montecarlopricer.h
-	"stdafx.h"
 	"CallOption.h"
+	"PutOption.h"
+
+1489385825 e:\programming\repositories\c++\financial mathematics\fmlib\montecarlopricer.h
+	"stdafx.h"
+	"PathIndependentOption.h"
 	"BlackScholesModel.h"
 
-1488689900 source:e:\programming\repositories\c++\financial mathematics\fmlib\putoption.cpp
+1489386194 source:e:\programming\repositories\c++\financial mathematics\fmlib\putoption.cpp
 	"PutOption.h"
 	"matlib.h"
 
-1488689696 e:\programming\repositories\c++\financial mathematics\fmlib\putoption.h
+1489386044 e:\programming\repositories\c++\financial mathematics\fmlib\putoption.h
 	"stdafx.h"
 	"BlackScholesModel.h"
+	"PathIndependentOption.h"
 
 1488654190 e:\programming\repositories\c++\financial mathematics\fmlib\piechart.h
 	"stdafx.h"
 
 1488690285 source:e:\programming\repositories\c++\financial mathematics\fmlib\piechart.cpp
 	"PieChart.h"
+
+1489385678 e:\programming\repositories\c++\financial mathematics\fmlib\pathindependentoption.h
+	"stdafx.h"
 

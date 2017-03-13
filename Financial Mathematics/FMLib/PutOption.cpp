@@ -2,7 +2,7 @@
 
 #include "matlib.h"
 
-/* Constructor */
+
 PutOption::PutOption() :
   strike(0.0),
   maturity(0.0) {
@@ -35,7 +35,12 @@ double PutOption::price(const BlackScholesModel& bsm ) const
     return -S*normcdf(-d1) + exp(-r*T)*K*normcdf(-d2);
 }
 
-// Tests
+
+double PutOption::getMaturity() const {
+    return maturity;
+}
+
+//  Test the call option class
 
 static void testPayoff()
 {
