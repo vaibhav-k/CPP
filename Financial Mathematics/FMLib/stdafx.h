@@ -10,9 +10,8 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <memory>
 #include <random>
 #include "testing.h"
-#include <memory>
-#include <cstring>
 
 #endif // STDAFX_H_INCLUDED

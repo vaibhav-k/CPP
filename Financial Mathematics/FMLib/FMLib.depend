@@ -18,17 +18,16 @@
 	"stdafx.h"
 	"RealFunction.h"
 
-1489434450 e:\programming\repositories\c++\financial mathematics\fmlib\stdafx.h
+1489512750 e:\programming\repositories\c++\financial mathematics\fmlib\stdafx.h
 	<iostream>
 	<cmath>
 	<vector>
 	<fstream>
 	<sstream>
 	<algorithm>
+	<memory>
 	<random>
 	"testing.h"
-	<memory>
-	<cstring>
 
 1488650909 e:\programming\repositories\c++\financial mathematics\fmlib\testing.h
 	<stdexcept>
@@ -137,8 +136,9 @@
 	"ContinuousTimeOption.h"
 	"BlackScholesModel.h"
 
-1489436396 e:\programming\repositories\c++\financial mathematics\fmlib\continuoustimeoption.h
+1489512953 e:\programming\repositories\c++\financial mathematics\fmlib\continuoustimeoption.h
 	"stdafx.h"
+	"Priceable.h"
 
 1489436396 source:e:\programming\repositories\c++\financial mathematics\fmlib\continuoustimeoption.cpp
 	"ContinuousTimeOption.h"
@@ -151,8 +151,8 @@
 	"matlib.h"
 	"testing.h"
 
-1489434414 e:\programming\repositories\c++\financial mathematics\fmlib\upandoutoption.h
-	"KnockoutOption.h"
+1489513133 e:\programming\repositories\c++\financial mathematics\fmlib\upandoutoption.h
+	"BarrierOption.h"
 
 1489436460 e:\programming\repositories\c++\financial mathematics\fmlib\knockoutoption.h
 	"ContinuousTimeOptionBase.h"
@@ -175,4 +175,57 @@
 1489434411 source:e:\programming\repositories\c++\financial mathematics\fmlib\upandoutoption.cpp
 	"UpAndOutOption.h"
 	"KnockoutOption.h"
+
+1489436687 source:e:\programming\repositories\c++\financial mathematics\fmlib\pointersolutions.cpp
+	"stdafx.h"
+	"testing.h"
+	"geometry.h"
+	<string>
+
+1489512482 source:e:\programming\repositories\c++\financial mathematics\fmlib\asianoption.cpp
+	"AsianOption.h"
+	"matlib.h"
+	"MonteCarloPricer.h"
+	"CallOption.h"
+
+1489512482 e:\programming\repositories\c++\financial mathematics\fmlib\asianoption.h
+	"ContinuousTimeOptionBase.h"
+
+1489512689 e:\programming\repositories\c++\financial mathematics\fmlib\priceable.h
+	"BlackScholesModel.h"
+
+1489512550 source:e:\programming\repositories\c++\financial mathematics\fmlib\barrieroption.cpp
+	"BarrierOption.h"
+
+1489512516 e:\programming\repositories\c++\financial mathematics\fmlib\barrieroption.h
+	"ContinuousTimeOptionBase.h"
+
+1489512655 source:e:\programming\repositories\c++\financial mathematics\fmlib\portfolio.cpp
+	"Portfolio.h"
+	"CallOption.h"
+	"PutOption.h"
+	"UpAndInOption.h"
+	"UpAndOutOption.h"
+	"ZeroCouponBond.h"
+	"Stock.h"
+
+1489512625 e:\programming\repositories\c++\financial mathematics\fmlib\portfolio.h
+	"stdafx.h"
+	"Priceable.h"
+
+1489512787 e:\programming\repositories\c++\financial mathematics\fmlib\upandinoption.h
+	"BarrierOption.h"
+
+1489512374 e:\programming\repositories\c++\financial mathematics\fmlib\zerocouponbond.h
+	"Priceable.h"
+
+1489513074 e:\programming\repositories\c++\financial mathematics\fmlib\stock.h
+	"Priceable.h"
+
+1489512712 source:e:\programming\repositories\c++\financial mathematics\fmlib\priceable.cpp
+	"Priceable.h"
+
+1489512815 source:e:\programming\repositories\c++\financial mathematics\fmlib\upandinoption.cpp
+	"UpAndInOption.h"
+	"BarrierOption.h"
 

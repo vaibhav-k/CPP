@@ -3,22 +3,14 @@
 
 #pragma once
 
-#include "KnockoutOption.h"
+#include "BarrierOption.h"
 
-class UpAndOutOption : public KnockoutOption
-{
+class UpAndOutOption : public BarrierOption {
 public:
-    double payoff(const std::vector<double>& prices ) const;
-
-    double price(const BlackScholesModel& model) const
-    {
-        if (model.stockPrice >= getBarrier())
-            return 0;
-        return KnockoutOption::price(model);
-    }
+    double payoff(
+        const std::vector<double>& prices ) const;
 };
 
 
 void testUpAndOutOption();
-
 #endif // UPANDOUTOPTION_H_INCLUDED

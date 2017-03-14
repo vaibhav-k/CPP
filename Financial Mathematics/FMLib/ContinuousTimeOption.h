@@ -1,13 +1,14 @@
 #pragma once
 
 #include "stdafx.h"
+#include "Priceable.h"
 
 /**
  *  Interface class for an option whose payoff should
  *  be approximated by looking at stock prices over all time
  *  time points
  */
-class ContinuousTimeOption {
+class ContinuousTimeOption : public Priceable {
 public:
     /*  Virtual destructor */
     virtual ~ContinuousTimeOption() {};

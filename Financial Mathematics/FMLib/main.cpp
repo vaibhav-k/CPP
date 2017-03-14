@@ -9,14 +9,16 @@
 #include "Histogram.h"
 #include "MonteCarloPricer.h"
 #include "UpAndOutOption.h"
+#include "UpAndInOption.h"
 #include "DownAndOutOption.h"
-#include "pointersolutions.h"
+#include "Portfolio.h"
+#include "AsianOption.h"
 
 using namespace std;
 
 int main() {
 
-    testPointerSolutions();
+
     testMatlib();
     testGeometry();
     testPieChart();
@@ -28,7 +30,12 @@ int main() {
     testHistogram();
     testMonteCarloPricer();
     testUpAndOutOption();
+    testUpAndInOption();
     testDownAndOutOption();
+    testAsianOption();
     testContinuousTimeOptionBase();
+    testPortfolio();
+
+
     return 0;
 }
