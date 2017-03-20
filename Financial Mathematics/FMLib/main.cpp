@@ -12,6 +12,7 @@
 #include "UpAndInOption.h"
 #include "DownAndOutOption.h"
 #include "Portfolio.h"
+#include "HedgingSimulator.h"
 #include "AsianOption.h"
 
 using namespace std;
@@ -35,6 +36,7 @@ int main() {
     testAsianOption();
     testContinuousTimeOptionBase();
     testPortfolio();
+    testHedgingSimulator();
 
 
     return 0;

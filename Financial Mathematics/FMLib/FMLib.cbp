@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="AsianOption.cpp" />
+		<Unit filename="AsianOption.h" />
+		<Unit filename="BarrierOption.cpp" />
+		<Unit filename="BarrierOption.h" />
 		<Unit filename="BlackScholesModel.cpp" />
 		<Unit filename="BlackScholesModel.h" />
 		<Unit filename="CallOption.cpp" />
@@ -43,6 +47,8 @@
 		<Unit filename="ContinuousTimeOptionBase.h" />
 		<Unit filename="DownAndOutOption.cpp" />
 		<Unit filename="DownAndOutOption.h" />
+		<Unit filename="HedgingSimulator.cpp" />
+		<Unit filename="HedgingSimulator.h" />
 		<Unit filename="Histogram.cpp" />
 		<Unit filename="Histogram.h" />
 		<Unit filename="KnockoutOption.cpp" />
@@ -55,12 +61,20 @@
 		<Unit filename="PathIndependentOption.h" />
 		<Unit filename="PieChart.cpp" />
 		<Unit filename="PieChart.h" />
+		<Unit filename="Portfolio.cpp" />
+		<Unit filename="Portfolio.h" />
+		<Unit filename="Priceable.cpp" />
+		<Unit filename="Priceable.h" />
 		<Unit filename="PutOption.cpp" />
 		<Unit filename="PutOption.h" />
 		<Unit filename="RealFunction.cpp" />
 		<Unit filename="RealFunction.h" />
+		<Unit filename="Stock.h" />
+		<Unit filename="UpAndInOption.cpp" />
+		<Unit filename="UpAndInOption.h" />
 		<Unit filename="UpAndOutOption.cpp" />
 		<Unit filename="UpAndOutOption.h" />
+		<Unit filename="ZeroCouponBond.h" />
 		<Unit filename="geometry.cpp" />
 		<Unit filename="geometry.h" />
 		<Unit filename="main.cpp" />

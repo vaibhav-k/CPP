@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1489434596 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
+1490011802 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
 	"matlib.h"
 	"geometry.h"
 	"textfunctions.h"
@@ -11,8 +11,11 @@
 	"Histogram.h"
 	"MonteCarloPricer.h"
 	"UpAndOutOption.h"
+	"UpAndInOption.h"
 	"DownAndOutOption.h"
-	"pointersolutions.h"
+	"Portfolio.h"
+	"HedgingSimulator.h"
+	"AsianOption.h"
 
 1489436509 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
 	"stdafx.h"
@@ -60,11 +63,11 @@
 1489436428 e:\programming\repositories\c++\financial mathematics\fmlib\geometry.h
 	"stdafx.h"
 
-1489436290 source:e:\programming\repositories\c++\financial mathematics\fmlib\calloption.cpp
+1490011769 source:e:\programming\repositories\c++\financial mathematics\fmlib\calloption.cpp
 	"CallOption.h"
 	"matlib.h"
 
-1489436290 e:\programming\repositories\c++\financial mathematics\fmlib\calloption.h
+1490011769 e:\programming\repositories\c++\financial mathematics\fmlib\calloption.h
 	"stdafx.h"
 	"BlackScholesModel.h"
 	"PathIndependentOption.h"
@@ -228,4 +231,14 @@
 1489512815 source:e:\programming\repositories\c++\financial mathematics\fmlib\upandinoption.cpp
 	"UpAndInOption.h"
 	"BarrierOption.h"
+
+1490011678 source:e:\programming\repositories\c++\financial mathematics\fmlib\hedgingsimulator.cpp
+	"HedgingSimulator.h"
+	"testing.h"
+	"matlib.h"
+
+1490011616 e:\programming\repositories\c++\financial mathematics\fmlib\hedgingsimulator.h
+	"stdafx.h"
+	"BlackScholesModel.h"
+	"CallOption.h"
 

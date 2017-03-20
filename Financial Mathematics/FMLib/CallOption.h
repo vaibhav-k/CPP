@@ -11,6 +11,9 @@ public:
 
     double price( const BlackScholesModel& bsm )
         const;
+
+    double delta(const BlackScholesModel& bsm)
+        const;
 };
 
 void testCallOption();
