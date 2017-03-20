@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="FMLib" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/FMLib" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/FMLib" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="AsianOption.cpp" />
+		<Unit filename="AsianOption.h" />
+		<Unit filename="BarrierOption.cpp" />
+		<Unit filename="BarrierOption.h" />
+		<Unit filename="BlackScholesModel.cpp" />
+		<Unit filename="BlackScholesModel.h" />
+		<Unit filename="CallOption.cpp" />
+		<Unit filename="CallOption.h" />
+		<Unit filename="Chart.h" />
+		<Unit filename="ContinuousTimeOption.cpp" />
+		<Unit filename="ContinuousTimeOption.h" />
+		<Unit filename="ContinuousTimeOptionBase.cpp" />
+		<Unit filename="ContinuousTimeOptionBase.h" />
+		<Unit filename="DownAndOutOption.cpp" />
+		<Unit filename="DownAndOutOption.h" />
+		<Unit filename="HedgingSimulator.cpp" />
+		<Unit filename="HedgingSimulator.h" />
+		<Unit filename="Histogram.cpp" />
+		<Unit filename="Histogram.h" />
+		<Unit filename="KnockoutOption.cpp" />
+		<Unit filename="KnockoutOption.h" />
+		<Unit filename="LineChart.cpp" />
+		<Unit filename="LineChart.h" />
+		<Unit filename="MonteCarloPricer.cpp" />
+		<Unit filename="MonteCarloPricer.h" />
+		<Unit filename="PathIndependentOption.cpp" />
+		<Unit filename="PathIndependentOption.h" />
+		<Unit filename="PieChart.cpp" />
+		<Unit filename="PieChart.h" />
+		<Unit filename="Portfolio.cpp" />
+		<Unit filename="Portfolio.h" />
+		<Unit filename="Priceable.cpp" />
+		<Unit filename="Priceable.h" />
+		<Unit filename="PutOption.cpp" />
+		<Unit filename="PutOption.h" />
+		<Unit filename="RealFunction.cpp" />
+		<Unit filename="RealFunction.h" />
+		<Unit filename="Stock.h" />
+		<Unit filename="UpAndInOption.cpp" />
+		<Unit filename="UpAndInOption.h" />
+		<Unit filename="UpAndOutOption.cpp" />
+		<Unit filename="UpAndOutOption.h" />
+		<Unit filename="ZeroCouponBond.h" />
+		<Unit filename="geometry.cpp" />
+		<Unit filename="geometry.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="matlib.cpp" />
+		<Unit filename="matlib.h" />
+		<Unit filename="pointersolutions.cpp" />
+		<Unit filename="pointersolutions.h" />
+		<Unit filename="stdafx.h" />
+		<Unit filename="testing.cpp" />
+		<Unit filename="testing.h" />
+		<Unit filename="textfunctions.cpp" />
+		<Unit filename="textfunctions.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

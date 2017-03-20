@@ -1,0 +1,486 @@
+# depslib dependency file v1.0
+1490026422 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
+	"matlib.h"
+	"geometry.h"
+	"textfunctions.h"
+	"CallOption.h"
+	"PutOption.h"
+	"PieChart.h"
+	"LineChart.h"
+	"BlackScholesModel.h"
+	"Histogram.h"
+	"MonteCarloPricer.h"
+	"UpAndOutOption.h"
+	"UpAndInOption.h"
+	"DownAndOutOption.h"
+	"Portfolio.h"
+	"HedgingSimulator.h"
+	"AsianOption.h"
+
+1490026422 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
+	"stdafx.h"
+	"RealFunction.h"
+
+1489512750 e:\programming\repositories\c++\financial mathematics\fmlib\stdafx.h
+	<iostream>
+	<cmath>
+	<vector>
+	<fstream>
+	<sstream>
+	<algorithm>
+	<memory>
+	<random>
+	"testing.h"
+
+1488650909 e:\programming\repositories\c++\financial mathematics\fmlib\testing.h
+	<stdexcept>
+	<sstream>
+	<iostream>
+	<stdlib.h>
+	<cassert>
+
+1490026422 source:e:\programming\repositories\c++\financial mathematics\fmlib\matlib.cpp
+	"matlib.h"
+	"geometry.h"
+	"LineChart.h"
+	"Histogram.h"
+
+1488651092 source:e:\programming\repositories\c++\financial mathematics\fmlib\testing.cpp
+	"testing.h"
+
+1488655127 source:e:\programming\repositories\c++\financial mathematics\fmlib\charts.cpp
+	"charts.h"
+
+1488654190 e:\programming\repositories\c++\financial mathematics\fmlib\charts.h
+	"stdafx.h"
+
+1489436428 source:e:\programming\repositories\c++\financial mathematics\fmlib\geometry.cpp
+	"geometry.h"
+	"stdafx.h"
+	"testing.h"
+	"matlib.h"
+
+1489436428 e:\programming\repositories\c++\financial mathematics\fmlib\geometry.h
+	"stdafx.h"
+
+1490011769 source:e:\programming\repositories\c++\financial mathematics\fmlib\calloption.cpp
+	"CallOption.h"
+	"matlib.h"
+
+1490011769 e:\programming\repositories\c++\financial mathematics\fmlib\calloption.h
+	"stdafx.h"
+	"BlackScholesModel.h"
+	"PathIndependentOption.h"
+
+1489436290 e:\programming\repositories\c++\financial mathematics\fmlib\blackscholesmodel.h
+	"stdafx.h"
+
+1489436290 source:e:\programming\repositories\c++\financial mathematics\fmlib\blackscholesmodel.cpp
+	"BlackScholesModel.h"
+	"matlib.h"
+
+1488658274 source:e:\programming\repositories\c++\financial mathematics\fmlib\linechart.cpp
+	"LineChart.h"
+	"textfunctions.h"
+
+1488658194 e:\programming\repositories\c++\financial mathematics\fmlib\linechart.h
+	"stdafx.h"
+
+1488658327 e:\programming\repositories\c++\financial mathematics\fmlib\textfunctions.h
+	"stdafx.h"
+
+1488658363 source:e:\programming\repositories\c++\financial mathematics\fmlib\textfunctions.cpp
+	"textfunctions.h"
+
+1488658474 source:e:\programming\repositories\c++\financial mathematics\fmlib\histogram.cpp
+	"Histogram.h"
+	"testing.h"
+	"matlib.h"
+	"LineChart.h"
+
+1488658150 e:\programming\repositories\c++\financial mathematics\fmlib\histogram.h
+	"stdafx.h"
+
+1489436542 source:e:\programming\repositories\c++\financial mathematics\fmlib\montecarlopricer.cpp
+	"MonteCarloPricer.h"
+	"matlib.h"
+	"CallOption.h"
+
+1489436542 e:\programming\repositories\c++\financial mathematics\fmlib\montecarlopricer.h
+	"stdafx.h"
+	"ContinuousTimeOption.h"
+	"BlackScholesModel.h"
+
+1489434509 source:e:\programming\repositories\c++\financial mathematics\fmlib\putoption.cpp
+	"PutOption.h"
+	"matlib.h"
+
+1489435777 e:\programming\repositories\c++\financial mathematics\fmlib\putoption.h
+	"stdafx.h"
+	"BlackScholesModel.h"
+	"PathIndependentOption.h"
+
+1488654190 e:\programming\repositories\c++\financial mathematics\fmlib\piechart.h
+	"stdafx.h"
+
+1488690285 source:e:\programming\repositories\c++\financial mathematics\fmlib\piechart.cpp
+	"PieChart.h"
+
+1489436582 e:\programming\repositories\c++\financial mathematics\fmlib\pathindependentoption.h
+	"stdafx.h"
+	"ContinuousTimeOptionBase.h"
+
+1489386246 source:e:\programming\repositories\c++\financial mathematics\fmlib\realfunction.cpp
+	"RealFunction.h"
+
+1489385765 e:\programming\repositories\c++\financial mathematics\fmlib\realfunction.h
+
+1489436396 e:\programming\repositories\c++\financial mathematics\fmlib\continuoustimeoptionbase.h
+	"ContinuousTimeOption.h"
+	"BlackScholesModel.h"
+
+1489512953 e:\programming\repositories\c++\financial mathematics\fmlib\continuoustimeoption.h
+	"stdafx.h"
+	"Priceable.h"
+
+1489436396 source:e:\programming\repositories\c++\financial mathematics\fmlib\continuoustimeoption.cpp
+	"ContinuousTimeOption.h"
+
+1489436396 source:e:\programming\repositories\c++\financial mathematics\fmlib\continuoustimeoptionbase.cpp
+	"ContinuousTimeOptionBase.h"
+	"MonteCarloPricer.h"
+	"UpAndOutOption.h"
+	"CallOption.h"
+	"matlib.h"
+	"testing.h"
+
+1489513133 e:\programming\repositories\c++\financial mathematics\fmlib\upandoutoption.h
+	"BarrierOption.h"
+
+1489436460 e:\programming\repositories\c++\financial mathematics\fmlib\knockoutoption.h
+	"ContinuousTimeOptionBase.h"
+
+1489436396 source:e:\programming\repositories\c++\financial mathematics\fmlib\downandoutoption.cpp
+	"DownAndOutOption.h"
+	"KnockoutOption.h"
+
+1489436396 e:\programming\repositories\c++\financial mathematics\fmlib\downandoutoption.h
+	"KnockoutOption.h"
+
+1489434995 source:e:\programming\repositories\c++\financial mathematics\fmlib\knockoutoption.cpp
+	"KnockoutOption.h"
+
+1489436646 e:\programming\repositories\c++\financial mathematics\fmlib\pointersolutions.h
+
+1489434570 source:e:\programming\repositories\c++\financial mathematics\fmlib\pathindependentoption.cpp
+	"PathIndependentOption.h"
+
+1489434411 source:e:\programming\repositories\c++\financial mathematics\fmlib\upandoutoption.cpp
+	"UpAndOutOption.h"
+	"KnockoutOption.h"
+
+1489436687 source:e:\programming\repositories\c++\financial mathematics\fmlib\pointersolutions.cpp
+	"stdafx.h"
+	"testing.h"
+	"geometry.h"
+	<string>
+
+1489512482 source:e:\programming\repositories\c++\financial mathematics\fmlib\asianoption.cpp
+	"AsianOption.h"
+	"matlib.h"
+	"MonteCarloPricer.h"
+	"CallOption.h"
+
+1489512482 e:\programming\repositories\c++\financial mathematics\fmlib\asianoption.h
+	"ContinuousTimeOptionBase.h"
+
+1489512689 e:\programming\repositories\c++\financial mathematics\fmlib\priceable.h
+	"BlackScholesModel.h"
+
+1489512550 source:e:\programming\repositories\c++\financial mathematics\fmlib\barrieroption.cpp
+	"BarrierOption.h"
+
+1489512516 e:\programming\repositories\c++\financial mathematics\fmlib\barrieroption.h
+	"ContinuousTimeOptionBase.h"
+
+1489512655 source:e:\programming\repositories\c++\financial mathematics\fmlib\portfolio.cpp
+	"Portfolio.h"
+	"CallOption.h"
+	"PutOption.h"
+	"UpAndInOption.h"
+	"UpAndOutOption.h"
+	"ZeroCouponBond.h"
+	"Stock.h"
+
+1489512625 e:\programming\repositories\c++\financial mathematics\fmlib\portfolio.h
+	"stdafx.h"
+	"Priceable.h"
+
+1489512787 e:\programming\repositories\c++\financial mathematics\fmlib\upandinoption.h
+	"BarrierOption.h"
+
+1489512374 e:\programming\repositories\c++\financial mathematics\fmlib\zerocouponbond.h
+	"Priceable.h"
+
+1489513074 e:\programming\repositories\c++\financial mathematics\fmlib\stock.h
+	"Priceable.h"
+
+1489512712 source:e:\programming\repositories\c++\financial mathematics\fmlib\priceable.cpp
+	"Priceable.h"
+
+1489512815 source:e:\programming\repositories\c++\financial mathematics\fmlib\upandinoption.cpp
+	"UpAndInOption.h"
+	"BarrierOption.h"
+
+1490011678 source:e:\programming\repositories\c++\financial mathematics\fmlib\hedgingsimulator.cpp
+	"HedgingSimulator.h"
+	"testing.h"
+	"matlib.h"
+
+1490011616 e:\programming\repositories\c++\financial mathematics\fmlib\hedgingsimulator.h
+	"stdafx.h"
+	"BlackScholesModel.h"
+	"CallOption.h"
+
+1490026014 e:\programming\repositories\c++\financial mathematics\fmlib\matrix.h
+	"stdafx.h"
+
+1489512482 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\asianoption.cpp
+	"AsianOption.h"
+	"matlib.h"
+	"MonteCarloPricer.h"
+	"CallOption.h"
+
+1489512482 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\asianoption.h
+	"ContinuousTimeOptionBase.h"
+
+1489436396 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\continuoustimeoptionbase.h
+	"ContinuousTimeOption.h"
+	"BlackScholesModel.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\continuoustimeoption.h
+	"stdafx.h"
+	"Priceable.h"
+	"Matrix.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\stdafx.h
+	<iostream>
+	<cmath>
+	<cstring>
+	<ctime>
+	<vector>
+	<fstream>
+	<sstream>
+	<algorithm>
+	<memory>
+	<random>
+	"testing.h"
+
+1488650909 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\testing.h
+	<stdexcept>
+	<sstream>
+	<iostream>
+	<stdlib.h>
+	<cassert>
+
+1489512689 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\priceable.h
+	"BlackScholesModel.h"
+
+1490027363 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\blackscholesmodel.h
+	"stdafx.h"
+	"Matrix.h"
+
+1490026014 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\matrix.h
+	"stdafx.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\matlib.h
+	"stdafx.h"
+	"RealFunction.h"
+	"Matrix.h"
+
+1489385765 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\realfunction.h
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\montecarlopricer.h
+	"stdafx.h"
+	"ContinuousTimeOption.h"
+	"BlackScholesModel.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\calloption.h
+	"stdafx.h"
+	"BlackScholesModel.h"
+	"PathIndependentOption.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\pathindependentoption.h
+	"stdafx.h"
+	"ContinuousTimeOptionBase.h"
+
+1489512550 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\barrieroption.cpp
+	"BarrierOption.h"
+
+1489512516 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\barrieroption.h
+	"ContinuousTimeOptionBase.h"
+
+1489436396 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\continuoustimeoption.cpp
+	"ContinuousTimeOption.h"
+
+1489436396 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\continuoustimeoptionbase.cpp
+	"ContinuousTimeOptionBase.h"
+	"MonteCarloPricer.h"
+	"UpAndOutOption.h"
+	"CallOption.h"
+	"matlib.h"
+	"testing.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\upandoutoption.h
+	"KnockoutOption.h"
+
+1489436460 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\knockoutoption.h
+	"ContinuousTimeOptionBase.h"
+
+1490027313 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\geometry.cpp
+	"geometry.h"
+	"stdafx.h"
+	"testing.h"
+	"matlib.h"
+
+1489436428 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\geometry.h
+	"stdafx.h"
+
+1490011678 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\hedgingsimulator.cpp
+	"HedgingSimulator.h"
+	"testing.h"
+	"matlib.h"
+
+1490011616 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\hedgingsimulator.h
+	"stdafx.h"
+	"BlackScholesModel.h"
+	"CallOption.h"
+
+1489434995 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\knockoutoption.cpp
+	"KnockoutOption.h"
+
+1488658274 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\linechart.cpp
+	"LineChart.h"
+	"textfunctions.h"
+
+1488658194 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\linechart.h
+	"stdafx.h"
+
+1488658327 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\textfunctions.h
+	"stdafx.h"
+
+1489434570 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\pathindependentoption.cpp
+	"PathIndependentOption.h"
+
+1488690285 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\piechart.cpp
+	"PieChart.h"
+
+1488654190 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\piechart.h
+	"stdafx.h"
+
+1489436687 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\pointersolutions.cpp
+	"stdafx.h"
+	"testing.h"
+	"geometry.h"
+	<string>
+
+1489512712 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\priceable.cpp
+	"Priceable.h"
+
+1489386246 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\realfunction.cpp
+	"RealFunction.h"
+
+1488651092 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\testing.cpp
+	"testing.h"
+
+1488658363 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\textfunctions.cpp
+	"textfunctions.h"
+
+1489512815 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\upandinoption.cpp
+	"UpAndInOption.h"
+	"BarrierOption.h"
+
+1489512787 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\upandinoption.h
+	"BarrierOption.h"
+
+1490027363 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\blackscholesmodel.cpp
+	"BlackScholesModel.h"
+	"matlib.h"
+
+1490027159 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\calloption.cpp
+	"CallOption.h"
+	"matlib.h"
+
+1490027159 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\downandoutoption.cpp
+	"DownAndOutOption.h"
+	"KnockoutOption.h"
+	"matlib.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\downandoutoption.h
+	"KnockoutOption.h"
+
+1490027159 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\histogram.cpp
+	"Histogram.h"
+	"testing.h"
+	"matlib.h"
+	"LineChart.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\histogram.h
+	"stdafx.h"
+	"Matrix.h"
+
+1490027159 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\main.cpp
+	"matlib.h"
+	"geometry.h"
+	"textfunctions.h"
+	"CallOption.h"
+	"PutOption.h"
+	"PieChart.h"
+	"LineChart.h"
+	"BlackScholesModel.h"
+	"Histogram.h"
+	"MonteCarloPricer.h"
+	"UpAndOutOption.h"
+	"DownAndOutOption.h"
+	"Portfolio.h"
+	"Matrix.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\putoption.h
+	"stdafx.h"
+	"BlackScholesModel.h"
+	"PathIndependentOption.h"
+
+1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\portfolio.h
+	"stdafx.h"
+	"Priceable.h"
+
+1490027159 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\matlib.cpp
+	"matlib.h"
+	"geometry.h"
+	"LineChart.h"
+	"Histogram.h"
+
+1490027159 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\montecarlopricer.cpp
+	"MonteCarloPricer.h"
+	"matlib.h"
+	"CallOption.h"
+
+1490027159 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\portfolio.cpp
+	"Portfolio.h"
+	"CallOption.h"
+	"PutOption.h"
+
+1490027159 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\putoption.cpp
+	"PutOption.h"
+	"matlib.h"
+
+1490027159 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\upandoutoption.cpp
+	"UpAndOutOption.h"
+	"KnockoutOption.h"
+	"MonteCarloPricer.h"
+	"matlib.h"
+
+1490026003 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\matrix.cpp
+	"Matrix.h"
+	"matlib.h"
+
