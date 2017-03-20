@@ -185,7 +185,7 @@ void hist( const string& file,
            int numBuckets ) {
     Histogram h;
     h.setData(data);
-    h.setNumBuckets( numBuckets );
+    h.setNumBuckets(numBuckets);
     h.writeAsHTML( file );
 }
 

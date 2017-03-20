@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1490011802 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
+1490026422 source:e:\programming\repositories\c++\financial mathematics\fmlib\main.cpp
 	"matlib.h"
 	"geometry.h"
 	"textfunctions.h"
@@ -17,7 +17,7 @@
 	"HedgingSimulator.h"
 	"AsianOption.h"
 
-1489436509 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
+1490026422 e:\programming\repositories\c++\financial mathematics\fmlib\matlib.h
 	"stdafx.h"
 	"RealFunction.h"
 
@@ -39,7 +39,7 @@
 	<stdlib.h>
 	<cassert>
 
-1489436509 source:e:\programming\repositories\c++\financial mathematics\fmlib\matlib.cpp
+1490026422 source:e:\programming\repositories\c++\financial mathematics\fmlib\matlib.cpp
 	"matlib.h"
 	"geometry.h"
 	"LineChart.h"
@@ -241,4 +241,7 @@
 	"stdafx.h"
 	"BlackScholesModel.h"
 	"CallOption.h"
+
+1490026014 e:\programming\repositories\c++\financial mathematics\fmlib\matrix.h
+	"stdafx.h"
 

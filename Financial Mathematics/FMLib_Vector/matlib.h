@@ -56,6 +56,12 @@ double integral( RealFunction& f,
                  int nSteps );
 
 
+
+
+
+
+
+
 /**
  *  Test function
  */
