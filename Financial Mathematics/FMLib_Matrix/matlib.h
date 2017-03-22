@@ -1,7 +1,6 @@
 #pragma once
 
 #include "stdafx.h"
-#include "RealFunction.h"
 #include "Matrix.h"
 
 
@@ -36,12 +35,44 @@ Matrix sortRows( const Matrix&  m );
 /*  Sort the cols of a matrix */
 Matrix sortCols( const Matrix&  m );
 
+
 /*  Create uniformly distributed random numbers */
 Matrix randuniform( int rows, int cols );
 /*  Create normally distributed random numbers */
 Matrix randn( int rows, int cols );
+/*  Create uniformly distributed random numbers */
+Matrix randuniform(std::mt19937& random,
+                  int rows, int cols);
+/*  Create normally distributed random numbers */
+Matrix randn(std::mt19937& random,
+             int rows, int cols);
 /*  Seeds the default random number generator */
 void rng( const std::string& setting );
+
+/**
+ *  Exponentiate a matrix
+ */
+inline Matrix exp(const Matrix& m ) {
+    Matrix ret = m;
+    ret.exp();
+    return ret;
+}
+
+/**
+ *  Pointwise product
+ */
+inline Matrix dotTimes(Matrix& a, const Matrix& b) {
+    Matrix ret = a;
+    ret.times(b);
+    return ret;
+}
+
+
+/*  Matrix transpose */
+Matrix transpose(const Matrix& m);
+/*  Cholesky decomposition */
+Matrix chol(const Matrix& m);
+
 
 /**
  *  Computes the cumulative
@@ -65,10 +96,21 @@ void hist( const std::string& fileName,
            int numBuckets=10);
 
 /*  Integrate using the rectangle rule */
-double integral( RealFunction& f,
+double integral( std::function<double(double)> f,
                  double a,
                  double b,
                  int nSteps );
+
+/*  Integrate f from x to infinity using a substitution
+followed by the rectangle rule */
+double integralToInfinity(std::function<double(double)> f,
+    double x,
+    int nSteps);
+
+/*  Integrate f over the whole of R
+by two applications of integral to Infinity */
+double integralOverR(std::function<double(double)> f,
+    int nSteps);
 
 /**
  *   Creates a matrix of zeros
@@ -79,8 +121,6 @@ Matrix zeros( int rows, int cols );
  *   Creates a matrix of ones
  */
 Matrix ones( int rows, int cols );
-
-
 
 
 

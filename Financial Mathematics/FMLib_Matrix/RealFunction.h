@@ -1,10 +1,9 @@
-#ifndef REALFUNCTION_H_INCLUDED
-#define REALFUNCTION_H_INCLUDED
-
 #pragma once
 
 /**
- *   A real function is something that can be evaluated at a real number to give a real number
+ *   A real function is something that can
+ *   be evaluated at a real number to give
+ *   a real number
  */
 class RealFunction {
 public:
@@ -13,6 +12,8 @@ public:
     /*  This method is abstract, there is
         no definition */
     virtual double evaluate( double x ) = 0;
-};
 
-#endif // REALFUNCTION_H_INCLUDED
+    double operator()(double x) {
+        return evaluate(x);
+    }
+};

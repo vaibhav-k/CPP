@@ -1,6 +1,3 @@
-#ifndef MATRIX_H_INCLUDED
-#define MATRIX_H_INCLUDED
-
 #pragma once
 
 #include "stdafx.h"
@@ -24,8 +21,6 @@ public:
     /*  Create a vector */
     explicit Matrix( std::vector<double> data, bool rowVector=0 );
 
-
-
     /**
      *  Destructor, cleans up the data created
      */
@@ -33,31 +28,33 @@ public:
         delete[] data;
     }
 
-    /*  Retrieve the value at the given index */
+    /**
+     *  Retrieve the value a the given index
+     */
     double get( int i, int j ) const {
         return data[ offset(i, j ) ];
     }
 
-    /*  Set the value at the given index */
+    /**
+     *  Set the value at the given index
+     */
     void set( int i, int j, double value ) {
         data[ offset(i, j ) ] = value;
     }
 
-
-
-    /*  The number of rows in the matrix */
+    /**
+     *   The number of rows in the matrix
+     */
     int nRows() const {
         return nrows;
     }
 
-    /*  The number of columns in the matrix */
+    /**
+     *  The number of columns in the matrix
+     */
     int nCols() const {
         return ncols;
     }
-
-
-
-
 
     /**
      *   Allows one to access a cell using parentheses
@@ -198,14 +195,14 @@ public:
      *  Returns the offset to the given cell in a matrix
      */
     int offset( int i, int j ) const {
+        // Note that this assert is not tested when running in the release mode
         ASSERT( i >=0 && i<nrows && j>=0 && j<ncols );
         return j*nrows + i;
     }
 
-
 private:
 
-    /*  The number of rows in the matrix */
+    /*  The number of rows in the matrx */
     int nrows;
     /*  The number of columns */
     int ncols;
@@ -222,113 +219,101 @@ private:
     void assign( const Matrix& other );
 };
 
-/*  Write a matrix to a stream
-    NB - not a member function */
-std::ostream& operator<<(std::ostream& out,
-                         const Matrix& m );
-/*  Multiply a matrix by a scalar
-    NB - not a member function */
+/*  Define shared ptr to a matrix type */
+typedef std::shared_ptr<Matrix> SPMatrix;
+typedef std::shared_ptr<const Matrix> SPCMatrix;
+
+/*  Write a matrix to a stream */
+std::ostream& operator<<(std::ostream& out, const Matrix& m );
+
+/*  Multiply a matrix by a scalar */
 Matrix operator*(const Matrix& m, double scalar );
 
-/*  Multiply a matrix by a scalar
-    NB - not a member function */
+/*  Matrix multiplication */
+Matrix operator*(const Matrix& a, const Matrix& b);
+
+/*  Multiply a matrix by a scalar */
 inline Matrix operator*(double scalar, const Matrix& m ) {
     return m*scalar;
 }
 
-/*  Add a scalar to every element of a matrix
-    NB - not a member function */
+/*  Add a scalar to every element of a matrix */
 Matrix operator+(const Matrix& m, double scalar );
 
-/*  Add a scalar to every element of a matrix
-    NB - not a member function */
-inline Matrix operator+(double scalar,
-                        const Matrix& m ) {
+/*  Add a scalar to every element of a matrix */
+inline Matrix operator+(double scalar, const Matrix& m ) {
     return m+scalar;
 }
-/*  Add two matrices
-    NB - not a member function  */
+
+/*  Add two matrices */
 Matrix operator+(const Matrix& x, const Matrix& y );
-/*  Subtraction
-    NB - not a member function */
+/*  Subtraction */
 Matrix operator-(double scalar, const Matrix& m );
-/*  Subtract a scalar from a matrix
-    NB - not a member function */
+/*  Subtract a scalar from a matrix */
 Matrix operator-(const Matrix& m, double scalar );
-/*  Subtract two matrices
-    NB - not a member function */
+/*  Subtract two matrices */
 Matrix operator-(const Matrix& x, const Matrix& y );
 
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator>(const Matrix& x, double s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator>=(const Matrix& x, double s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator<(const Matrix& x, double s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator<=(const Matrix& x, double s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator==(const Matrix& x, double s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator!=(const Matrix& x, double s);
 
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 inline Matrix operator>(double s, const Matrix& x  ) {
     return x<s;
 }
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 inline Matrix operator>=(double s, const Matrix& x ) {
     return x<=s;
 }
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 inline Matrix operator<(double s, const Matrix& x ) {
     return x>s;
 }
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 inline Matrix operator<=(double s, const Matrix& x ) {
     return x>=s;
 };
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 inline Matrix operator==(double s, const Matrix& x ) {
     return x==s;
 }
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 inline Matrix operator!=(double s, const Matrix& x ) {
     return x!=s;
 }
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator>(const Matrix& x, const Matrix& s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator>=(const Matrix& x,  const Matrix&  s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator<(const Matrix& x,  const Matrix&  s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator<=(const Matrix& x,  const Matrix&  s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator==(const Matrix& x,  const Matrix&  s );
-/*  Comparison operator
-    NB - not a member function */
+/*  Comparison operator */
 Matrix operator!=(const Matrix& x,  const Matrix&  s);
 
+
+
+
+
+
+///////////////////////////////
+//
 //   TESTS
+//
+///////////////////////////////
+
 
 void testMatrix();
-
-#endif // MATRIX_H_INCLUDED

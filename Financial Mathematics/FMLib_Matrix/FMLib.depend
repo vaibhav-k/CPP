@@ -254,16 +254,16 @@
 1489512482 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\asianoption.h
 	"ContinuousTimeOptionBase.h"
 
-1489436396 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\continuoustimeoptionbase.h
+1490185627 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\continuoustimeoptionbase.h
 	"ContinuousTimeOption.h"
-	"BlackScholesModel.h"
+	"MultiStockModel.h"
 
-1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\continuoustimeoption.h
+1490185627 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\continuoustimeoption.h
 	"stdafx.h"
 	"Priceable.h"
 	"Matrix.h"
 
-1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\stdafx.h
+1490185628 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\stdafx.h
 	<iostream>
 	<cmath>
 	<cstring>
@@ -274,6 +274,12 @@
 	<algorithm>
 	<memory>
 	<random>
+	<map>
+	<set>
+	<unordered_map>
+	<mutex>
+	<condition_variable>
+	<thread>
 	"testing.h"
 
 1488650909 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\testing.h
@@ -283,22 +289,21 @@
 	<stdlib.h>
 	<cassert>
 
-1489512689 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\priceable.h
-	"BlackScholesModel.h"
+1490185628 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\priceable.h
+	"MultiStockModel.h"
 
-1490027363 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\blackscholesmodel.h
+1490185628 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\blackscholesmodel.h
 	"stdafx.h"
 	"Matrix.h"
 
-1490026014 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\matrix.h
+1490185628 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\matrix.h
 	"stdafx.h"
 
-1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\matlib.h
+1490185628 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\matlib.h
 	"stdafx.h"
-	"RealFunction.h"
 	"Matrix.h"
 
-1489385765 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\realfunction.h
+1490185628 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\realfunction.h
 
 1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\montecarlopricer.h
 	"stdafx.h"
@@ -310,7 +315,7 @@
 	"BlackScholesModel.h"
 	"PathIndependentOption.h"
 
-1490027159 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\pathindependentoption.h
+1490185628 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\pathindependentoption.h
 	"stdafx.h"
 	"ContinuousTimeOptionBase.h"
 
@@ -483,4 +488,14 @@
 1490026003 source:e:\programming\repositories\c++\financial mathematics\fmlib_matrix\matrix.cpp
 	"Matrix.h"
 	"matlib.h"
+
+1490185628 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\multistockmodel.h
+	"stdafx.h"
+	"Matrix.h"
+	"BlackScholesModel.h"
+	"MarketSimulation.h"
+
+1490185682 e:\programming\repositories\c++\financial mathematics\fmlib_matrix\marketsimulation.h
+	"stdafx.h"
+	"Matrix.h"
 

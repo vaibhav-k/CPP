@@ -313,8 +313,7 @@ Matrix& Matrix::operator+=( double scalar ) {
 }
 /*  Addition */
 Matrix& Matrix::operator+=( const Matrix& other ) {
-    ASSERT( nRows()==other.nRows()
-            && nCols()==other.nCols());
+    ASSERT( nRows()==other.nRows() && nCols()==other.nCols());
     double* p1=begin();
     const double* p2=other.begin();
     while (p1!=end()) {
@@ -331,6 +330,7 @@ Matrix& Matrix::operator-=( double scalar ) {
     }
     return *this;
 }
+
 /*  Subtraction */
 Matrix& Matrix::operator-=( const Matrix& other ) {
     ASSERT( nRows()==other.nRows() && nCols()==other.nCols());
@@ -388,8 +388,7 @@ Matrix operator+(const Matrix& m, double scalar ) {
 
 
 Matrix operator+(const Matrix& x, const Matrix& y ) {
-    ASSERT( x.nRows()==y.nRows()
-        && x.nCols()==y.nCols());
+    ASSERT( x.nRows()==y.nRows() && x.nCols()==y.nCols());
     Matrix ret(x.nRows(), x.nCols(), 0 );
     double* dest = ret.begin();
     const double* s1 = x.begin();
@@ -400,6 +399,7 @@ Matrix operator+(const Matrix& x, const Matrix& y ) {
     }
     return ret;
 }
+
 Matrix operator-(double scalar, const Matrix& m ) {
     Matrix ret(m.nRows(), m.nCols(), 0 );
     double* dest = ret.begin();
@@ -578,6 +578,23 @@ Matrix operator!=(const Matrix& x,  const Matrix&  y) {
     const double* end = x.end();
     while (s1!=end) {
         *(dest++) = *(s1++) != *(s2++);
+    }
+    return ret;
+}
+
+/*  Matrix product */
+Matrix operator*(const Matrix& a, const Matrix& b) {
+    int m = a.nRows();
+    int r = a.nCols();
+    int n = b.nCols();
+    ASSERT(b.nRows() == r);
+    Matrix ret(m, n);
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < r; k++) {
+                ret(i, j) += a(i, k)*b(k, j);
+            }
+        }
     }
     return ret;
 }
@@ -865,6 +882,14 @@ static void testReadFromString() {
     }
 }
 
+static void testMatrixMultiplication() {
+    Matrix a("1,2,3;4,5,6");
+    Matrix b("1,2;3,4;5,6");
+    Matrix product = a*b;
+    Matrix expected("22,28;49,64");
+    product.assertEquals(expected,0.001);
+}
+
 static void testUsageExamples() {
     // CONFIRM THAT THE usage examples in the notes
     // all compile
@@ -908,4 +933,5 @@ void testMatrix() {
     TEST( testTest) ;
     TEST( testReadFromString );
     TEST( testUsageExamples );
+    TEST( testMatrixMultiplication );
 }

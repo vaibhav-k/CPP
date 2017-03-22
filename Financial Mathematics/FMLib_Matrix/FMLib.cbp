@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="FMLib" />
+		<Option title="FMLib_Matrix" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -32,10 +32,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="AsianOption.cpp" />
-		<Unit filename="AsianOption.h" />
-		<Unit filename="BarrierOption.cpp" />
-		<Unit filename="BarrierOption.h" />
 		<Unit filename="BlackScholesModel.cpp" />
 		<Unit filename="BlackScholesModel.h" />
 		<Unit filename="CallOption.cpp" />
@@ -47,20 +43,29 @@
 		<Unit filename="ContinuousTimeOptionBase.h" />
 		<Unit filename="DownAndOutOption.cpp" />
 		<Unit filename="DownAndOutOption.h" />
-		<Unit filename="HedgingSimulator.cpp" />
-		<Unit filename="HedgingSimulator.h" />
+		<Unit filename="Executor.cpp" />
+		<Unit filename="Executor.h" />
 		<Unit filename="Histogram.cpp" />
 		<Unit filename="Histogram.h" />
 		<Unit filename="KnockoutOption.cpp" />
 		<Unit filename="KnockoutOption.h" />
 		<Unit filename="LineChart.cpp" />
 		<Unit filename="LineChart.h" />
+		<Unit filename="MargrabeOption.cpp" />
+		<Unit filename="MargrabeOption.h" />
+		<Unit filename="MarketSimulation.h" />
+		<Unit filename="Matrix.cpp" />
+		<Unit filename="Matrix.h" />
 		<Unit filename="MonteCarloPricer.cpp" />
 		<Unit filename="MonteCarloPricer.h" />
+		<Unit filename="MultiStockModel.cpp" />
+		<Unit filename="MultiStockModel.h" />
 		<Unit filename="PathIndependentOption.cpp" />
 		<Unit filename="PathIndependentOption.h" />
 		<Unit filename="PieChart.cpp" />
 		<Unit filename="PieChart.h" />
+		<Unit filename="Pipeline.cpp" />
+		<Unit filename="Pipeline.h" />
 		<Unit filename="Portfolio.cpp" />
 		<Unit filename="Portfolio.h" />
 		<Unit filename="Priceable.cpp" />
@@ -69,24 +74,24 @@
 		<Unit filename="PutOption.h" />
 		<Unit filename="RealFunction.cpp" />
 		<Unit filename="RealFunction.h" />
-		<Unit filename="Stock.h" />
-		<Unit filename="UpAndInOption.cpp" />
-		<Unit filename="UpAndInOption.h" />
+		<Unit filename="RectangleRulePricer.cpp" />
+		<Unit filename="RectangleRulePricer.h" />
+		<Unit filename="Task.cpp" />
+		<Unit filename="Task.h" />
 		<Unit filename="UpAndOutOption.cpp" />
 		<Unit filename="UpAndOutOption.h" />
-		<Unit filename="ZeroCouponBond.h" />
 		<Unit filename="geometry.cpp" />
 		<Unit filename="geometry.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="matlib.cpp" />
 		<Unit filename="matlib.h" />
-		<Unit filename="pointersolutions.cpp" />
-		<Unit filename="pointersolutions.h" />
 		<Unit filename="stdafx.h" />
 		<Unit filename="testing.cpp" />
 		<Unit filename="testing.h" />
 		<Unit filename="textfunctions.cpp" />
 		<Unit filename="textfunctions.h" />
+		<Unit filename="threadingexamples.cpp" />
+		<Unit filename="threadingexamples.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

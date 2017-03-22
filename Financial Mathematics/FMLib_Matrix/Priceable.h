@@ -1,19 +1,13 @@
-#ifndef PRICEABLE_H_INCLUDED
-#define PRICEABLE_H_INCLUDED
-
 #pragma once
 
-#include "BlackScholesModel.h"
+#include "MultiStockModel.h"
 
 /**
  *   Represents a general security
  */
 class Priceable {
 public:
-    /*  Compute the price of the security in the
-        Black Scholes world */
+    /*  Compute the price of the security  */
     virtual double price(
-        const BlackScholesModel& model ) const = 0;
+        const MultiStockModel& model ) const = 0;
 };
-
-#endif // PRICEABLE_H_INCLUDED

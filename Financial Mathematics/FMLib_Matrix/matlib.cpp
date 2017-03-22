@@ -3,6 +3,7 @@
 #include "geometry.h"
 #include "LineChart.h"
 #include "Histogram.h"
+#include "RealFunction.h"
 
 
 using namespace std;
@@ -187,42 +188,56 @@ Matrix maxOverRows(const Matrix& m) {
     return maxCol;
 }
 
-
 /*  MersenneTwister random number generator */
 static mt19937 mersenneTwister;
+/*  Mutex to protect static var */
+static mutex rngMutex;
 
-/*  Reset the random number generator. We've borrowed the library call
-    from MATLAB, though we're ignoring the description string */
-void rng( const string& description ) {
-    ASSERT( description=="default" );
+/*  Reset the random number generator.
+We ignore the description string */
+void rng(const string& description) {
+    ASSERT(description == "default");
+    lock_guard<mutex> lock(rngMutex);
     mersenneTwister.seed(mt19937::default_seed);
 }
 
+/*  Generate random numbers */
+Matrix randuniform(int rows, int cols) {
+    lock_guard<mutex> lock(rngMutex);
+    return randuniform(mersenneTwister, rows, cols);
+}
+
 /*  Create uniformly distributed random numbers using
-    the Mersenne Twister algorithm. See the code above for the answer
-    to the homework excercise which should familiarize you with the C API*/
-Matrix randuniform( int rows, int cols ) {
+the Mersenne Twister algorithm. See the code above for the answer
+to the homework excercise which should familiarize you with the C API*/
+Matrix randuniform(mt19937& random, int rows, int cols) {
     Matrix ret(rows, cols, 0);
-    for (int i=0; i<rows; i++) {
-        for (int j=0; j<cols; j++) {
-            ret(i, j) = (mersenneTwister() + 0.5) /(mersenneTwister.max() + 1.0);
+    for (int i = 0; i<rows; i++) {
+        for (int j = 0; j<cols; j++) {
+            ret(i, j) = (random() + 0.5) / (random.max() + 1.0);
         }
     }
     return ret;
 }
 
+/**
+*  Generate random numbers
+*/
+Matrix randn(int rows, int cols) {
+    lock_guard<mutex> lock(rngMutex);
+    return randn(mersenneTwister, rows, cols);
+}
 
 /*  Create normally distributed random numbers */
-Matrix randn( int rows, int cols ) {
-    Matrix ret = randuniform(rows, cols );
-    for (int j=0; j<cols; j++) {
-        for (int i=0; i<rows; i++) {
-            ret(i,j)=norminv( ret(i,j) );
+Matrix randn(mt19937& random, int rows, int cols) {
+    Matrix ret = randuniform(random, rows, cols);
+    for (int j = 0; j<cols; j++) {
+        for (int i = 0; i<rows; i++) {
+            ret(i, j) = norminv(ret(i, j));
         }
     }
     return ret;
 }
-
 /**
  *  Sort the rows of a matrix
  */
@@ -434,7 +449,7 @@ double norminv( double x ) {
 /**
  *   Evaluate an integral using the rectangle rule
  */
-double integral( RealFunction& f,
+double integral( function<double(double)> f,
                  double a,
                  double b,
                  int nPoints ) {
@@ -442,12 +457,41 @@ double integral( RealFunction& f,
     double x = a + 0.5*h;
     double total = 0.0;
     for (int i=0; i<nPoints; i++) {
-        double y = f.evaluate(x);
+        double y = f(x);
         total+=y;
         x+=h;
     }
     return h*total;
 }
+
+/**
+*   Perform a substitution then integate the given
+*   real function from x to infinity by the rectangle rule
+*/
+double integralToInfinity(function<double(double)> f,
+    double x,
+    int nPoints) {
+    auto i = [&](double s) {
+        return 1 / (s*s)*f(1 / s + x - 1);
+    };
+    return integral(i, 0, 1, nPoints);
+}
+
+double integralFromInfinity(function<double(double)> f,
+    double x,
+    int nPoints) {
+    auto i = [&](double t) {
+        return f(-t);
+    };
+    return integralToInfinity(i, -x, nPoints);
+}
+
+double integralOverR(function<double(double)> f,
+    int nPoints) {
+    return integralToInfinity(f, 0, nPoints)
+        + integralFromInfinity(f, 0, nPoints);
+}
+
 
 
 /**
@@ -468,7 +512,38 @@ Matrix ones( int rows, int cols ) {
     return m;
 }
 
+Matrix transpose(const Matrix& in) {
+    Matrix ret(in.nCols(), in.nRows(), false);
+    for (int i = 0; i < in.nRows(); i++) {
+        for (int j = 0; j < in.nCols(); j++) {
+            ret(j, i) = in(i, j);
+        }
+    }
+    return ret;
+}
 
+/*  Compute the cholesky decomposition */
+Matrix chol(const Matrix& A) {
+    int n = A.nRows();
+    ASSERT(n == A.nCols());
+    Matrix L(n, n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <i ; j++) {
+            double s = A(i, j);
+            for (int k = 0; k < j; k++) {
+                s -= L(i, k)*L(j, k);
+            }
+            L(i, j) = s / L(j, j);
+        }
+        double s = A(i, i);
+        for (int k = 0; k < i ; k++) {
+            s -= L(i, k)*L(i, k);
+        }
+        ASSERT(s >= 0); /* A must be positive definite */
+        L(i, i) = sqrt(s);
+    }
+    return L;
+}
 
 
 ///////////////////////////////////////////////
@@ -615,6 +690,22 @@ static void testIntegralVersion2() {
 }
 
 
+static void testIntegral3() {
+    auto integrand = [](double x ) {
+        return sqrt(1 + pow(sin(x), 2.0));
+    };
+    double res = integral(integrand, 0, PI, 1000);
+    ASSERT_APPROX_EQUAL(res, 3.820197789, 0.001);
+}
+
+static void testInfiniteIntegrals() {
+    auto normPDF = [](double x) {
+        return 1 / ROOT_2_PI*exp(-0.5*x*x);
+    };
+    ASSERT_APPROX_EQUAL( integralOverR(normPDF,1000), 1.0, 0.01);
+}
+
+
 
 static void testMinOverRows() {
     Matrix m("1,2,3;4,5,6");
@@ -654,6 +745,19 @@ static void testSortCols() {
     expected.assertEquals( sortCols( m ), 0.001);
 }
 
+static void testTranspose() {
+    Matrix m("3;2;1");
+    Matrix expected("3,2,1");
+    expected.assertEquals(transpose(m), 0.001);
+}
+
+static void testChol() {
+    Matrix m("3,1,2;1,4,-1;2,-1,5");
+    Matrix c = chol(m);
+    Matrix product = c*transpose(c);
+    m.assertEquals( product, 0.001);
+}
+
 
 void testMatlib() {
     TEST( testLinspace );
@@ -667,10 +771,14 @@ void testMatlib() {
     TEST( testPrctile );
     TEST( testIntegral );
     TEST( testIntegralVersion2 );
+    TEST(testInfiniteIntegrals);
     TEST( testMaxOverRows );
     TEST( testMinOverRows );
     TEST( testMaxOverCols );
     TEST( testMinOverCols );
     TEST( testSortRows );
     TEST( testSortCols );
+    TEST( testTranspose );
+    TEST( testChol );
+    TEST(testIntegral3);
 }

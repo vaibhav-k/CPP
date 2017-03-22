@@ -13,24 +13,21 @@ public:
     double date;
 
     Matrix generatePricePaths(
-                            double toDate,
-                            int nPaths,
-                            int nSteps) const;
+        std::mt19937& rng,
+        double toDate,
+        int nPaths,
+        int nSteps) const;
 
     Matrix generateRiskNeutralPricePaths(
-                            double toDate,
-                            int nPaths,
-                            int nSteps) const;
+        std::mt19937& rng,
+        double toDate,
+        int nPaths,
+        int nSteps) const;
 
-private:
-
-    Matrix generatePricePaths(
-                            double toDate,
-                            int nPaths,
-                            int nSteps,
-                            double drift) const;
 };
 
-
+//
+//   Tests
+//
 
 void testBlackScholesModel();

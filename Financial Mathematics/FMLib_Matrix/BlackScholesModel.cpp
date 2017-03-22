@@ -1,4 +1,5 @@
 #include "BlackScholesModel.h"
+#include "MultiStockModel.h"
 
 using namespace std;
 
@@ -17,49 +18,36 @@ BlackScholesModel::BlackScholesModel() :
  */
 Matrix BlackScholesModel::
             generateRiskNeutralPricePaths(
+        mt19937& rng,
         double toDate,
         int nPaths,
         int nSteps ) const {
-    return generatePricePaths( toDate, nPaths, nSteps, riskFreeRate );
+    MultiStockModel msm(*this);
+    MarketSimulation sim
+        = msm.generateRiskNeutralPricePaths(
+            rng, toDate, nPaths, nSteps);
+    return *sim.getStockPrices(MultiStockModel::DEFAULT_STOCK);
 }
 
 /**
- *  Creates a price path according to the model parameters
- */
-Matrix BlackScholesModel::generatePricePaths(
+*  Creates a price path according to the model parameters
+*/
+Matrix BlackScholesModel:: generatePricePaths(
+        mt19937& rng,
         double toDate,
         int nPaths,
-        int nSteps ) const {
-    return generatePricePaths( toDate, nPaths, nSteps, drift );
+        int nSteps) const {
+    MultiStockModel msm(*this);
+    MarketSimulation sim
+        = msm.generatePricePaths(
+        rng, toDate, nPaths, nSteps);
+    return *sim.getStockPrices( MultiStockModel::DEFAULT_STOCK);
 }
 
 
 
-/**
- *  Creates a price path according to the model parameters
- */
-Matrix BlackScholesModel::generatePricePaths(
-        double toDate,
-        int nPaths,
-        int nSteps,
-        double drift ) const {
-    Matrix path(nPaths, nSteps,0);
-    double dt = (toDate-date)/nSteps;
-    double a = (drift - volatility*volatility*0.5)*dt;
-    double b = volatility*sqrt(dt);
-    Matrix currentLogS=log(stockPrice)*ones(nPaths,1);
-    for (int i=0; i<nSteps; i++) {
-        Matrix vals = randn( nPaths,1 );
-        // vals contains epsilon
-        vals*=b;
-        vals+=a;   // vals now contains dLogS
-        vals+=currentLogS; // vals now contains logS
-        currentLogS = vals;
-        vals.exp(); // vals now contains S
-        path.setCol( i, vals, 0 );
-    }
-    return path;
-}
+
+
 ////////////////////////////////
 //
 //   TESTS
@@ -67,7 +55,7 @@ Matrix BlackScholesModel::generatePricePaths(
 ////////////////////////////////
 
 void testRiskNeutralPricePath() {
-    rng("default");
+    mt19937 rng;
 
     BlackScholesModel bsm;
     bsm.riskFreeRate = 0.05;
@@ -79,7 +67,8 @@ void testRiskNeutralPricePath() {
     int nsteps = 5;
     double maturity = 4.0;
     Matrix paths =
-        bsm.generateRiskNeutralPricePaths( maturity,
+        bsm.generateRiskNeutralPricePaths( rng,
+                                           maturity,
                                             nPaths,
                                             nsteps );
     Matrix finalPrices = paths.col( nsteps-1 );
@@ -88,6 +77,9 @@ void testRiskNeutralPricePath() {
 }
 
 void testVisually() {
+
+    mt19937 rng;
+
     BlackScholesModel bsm;
     bsm.riskFreeRate = 0.05;
     bsm.volatility = 0.1;
@@ -97,7 +89,8 @@ void testVisually() {
     int nSteps = 1000;
     double maturity = 4.0;
 
-    Matrix path = bsm.generatePricePaths( maturity,
+    Matrix path = bsm.generatePricePaths( rng,
+                                          maturity,
                                          1,
                                          nSteps );
     double dt = (maturity-bsm.date)/nSteps;

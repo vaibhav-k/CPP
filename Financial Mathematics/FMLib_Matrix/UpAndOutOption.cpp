@@ -48,7 +48,7 @@ static void testPerformance() {
 
     MonteCarloPricer pricer;
     clock_t start = clock();
-    pricer.nScenarios = 10000;
+    pricer.nScenarios = 1000;
     pricer.nSteps = 365;
 
     double price = pricer.price( o, model );

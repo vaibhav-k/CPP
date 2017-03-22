@@ -1,0 +1,8 @@
+#ifndef THREADINGEXAMPLES_H_INCLUDED
+#define THREADINGEXAMPLES_H_INCLUDED
+
+#pragma once
+
+void testThreadingExamples();
+
+#endif // THREADINGEXAMPLES_H_INCLUDED

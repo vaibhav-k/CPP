@@ -5,8 +5,7 @@
 #include "matlib.h"
 #include "testing.h"
 
-double ContinuousTimeOptionBase::price(
-        const BlackScholesModel& model ) const {
+double ContinuousTimeOptionBase::price( const MultiStockModel& model ) const {
     MonteCarloPricer pricer;
     return pricer.price( *this, model );
 }
@@ -36,8 +35,9 @@ static void testPrice() {
     ContinuousTimeOptionBase& o1=callOption;
     ContinuousTimeOptionBase& o2=knockoutOption;
 
-    double p1 = o1.price( bsm );
-    double p2 = o2.price( bsm );
+    MultiStockModel msm(bsm);
+    double p1 = o1.price( msm );
+    double p2 = o2.price( msm );
 
     ASSERT_APPROX_EQUAL( p1, p2, 0.1);
 }
